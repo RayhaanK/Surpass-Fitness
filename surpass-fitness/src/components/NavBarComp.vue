@@ -111,8 +111,13 @@ export default {};
   background-color: #000407;
 }
 
+li {
+  padding-right: 0.9rem;
+}
+
 i {
   color: #f5f7f7;
+  font-size: 1.4rem !important;
 }
 
 i:hover {
