@@ -416,7 +416,7 @@ h2 {
 }
 
 .bmi {
-  height: 50vh;
+  height: max-content;
 }
 
 @media (max-width: 992px) {
