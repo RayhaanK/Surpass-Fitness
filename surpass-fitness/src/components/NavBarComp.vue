@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/"
         ><img
-          src="https://i.postimg.cc/BQzP1kZ6/surpass-Fitness-2.png"
+          src="https://i.postimg.cc/XY3gGsCQ/image-1-removebg-preview.png"
           alt="Surpass Fitness"
       /></a>
       <button
@@ -44,16 +44,16 @@
                 >
               </li>
               <li>
-                <router-link to="#" class="dropdown-item"
+                <router-link to="/about#WhyChooseUs" class="dropdown-item"
                   >Why Choose Us</router-link
                 >
               </li>
               <li>
-                <router-link to="#" class="dropdown-item">The Team</router-link>
+                <router-link to="/about#Team" class="dropdown-item">The Team</router-link>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link to="#" class="dropdown-item">FAQS</router-link>
+                <router-link to="/about#Faqs" class="dropdown-item">FAQS</router-link>
               </li>
             </ul>
           </li>
@@ -132,6 +132,6 @@ i:hover {
 }
 
 img {
-    width: 12rem;
+    width: 13rem;
 }
 </style>
