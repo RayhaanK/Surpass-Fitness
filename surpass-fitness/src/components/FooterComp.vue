@@ -10,7 +10,7 @@
             class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
           >
           <img
-          src="https://i.postimg.cc/BQzP1kZ6/surpass-Fitness-2.png"
+          src="https://i.postimg.cc/XY3gGsCQ/image-1-removebg-preview.png"
           alt="Surpass Fitness"
       />
           </a>
@@ -75,7 +75,7 @@ export default {};
 
 <style scoped>
 img {
-    width: 12rem;
+    width: 13rem;
 }
 
 .container-fluid {
