@@ -39,13 +39,11 @@
         <div class="row row-cols-1 row-cols-lg-3">
           <div class="col colChoice g-4">
             <div class="card cardChoice" style="width: 18rem">
-                <h2 class="card-title headgingChoice p-4">
-                    <i class="bi bi-bicycle"></i> Delivery
-                </h2>
-                <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">
-                  Card subtitle
-                </h6>
+              <h2 class="card-title headgingChoice p-4">
+                <i class="bi bi-bicycle"></i> Delivery
+              </h2>
+              <div class="card-body mb-5">
+                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
                 <p class="card-text textChoice">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -55,13 +53,11 @@
           </div>
           <div class="col colChoice g-4">
             <div class="card cardChoice" style="width: 18rem">
-                <h2 class="card-title headgingChoice p-4">
-                    <i class="bi bi-emoji-smile"></i> Commitment
-                </h2>
-                <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">
-                  Card subtitle
-                </h6>
+              <h2 class="card-title headgingChoice p-4">
+                <i class="bi bi-emoji-smile"></i> Commitment
+              </h2>
+              <div class="card-body mb-5">
+                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
                 <p class="card-text textChoice">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -71,16 +67,38 @@
           </div>
           <div class="col colChoice g-4">
             <div class="card cardChoice" style="width: 18rem">
-                <h2 class="card-title headgingChoice p-4">
-                    <i class="bi bi-credit-card"></i> Cash-Back
-                </h2>
-                <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">
-                  Card subtitle
-                </h6>
+              <h2 class="card-title headgingChoice p-4">
+                <i class="bi bi-credit-card"></i> Cash-Back
+              </h2>
+              <div class="card-body mb-5">
+                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
                 <p class="card-text textChoice">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Team" class="team mt-5">
+        <div class="container mt-4">
+            <h2>MEET THE TEAM</h2>
+        </div>
+      <div class="container d-flex justify-content-center">
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://i.postimg.cc/hPCbBYcr/danielle-cerullo-CQf-Nt66tt-ZM-unsplash.jpg" class="img-fluid rounded-start" alt="..." />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text d-flex justify-content-center">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
                 </p>
               </div>
             </div>
@@ -125,7 +143,7 @@ export default {};
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: end ;
+  justify-content: end;
 }
 
 .headgingChoice {
@@ -141,6 +159,10 @@ export default {};
   display: flex;
   justify-content: center;
   align-content: center;
+}
+
+.team {
+    height: 100vh;
 }
 
 @media (max-width: 768px) {
