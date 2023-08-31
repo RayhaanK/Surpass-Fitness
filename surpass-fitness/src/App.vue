@@ -27,6 +27,11 @@ nav a:hover {
 nav a.router-link-exact-active {
   color: #79031D !important;
 }
+
+h2 {
+  color: #79031d !important;
+  font-weight: 800 !important;
+}
 </style>
 
 <script>
