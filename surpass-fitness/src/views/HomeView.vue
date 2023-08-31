@@ -270,11 +270,11 @@ export default {
 
 <style scoped>
 .carousel-item {
-  height: 82vh;
+  height: 85vh;
 }
 
 .cImg {
-  height: 82vh;
+  height: 85vh;
   object-fit: cover;
 }
 
