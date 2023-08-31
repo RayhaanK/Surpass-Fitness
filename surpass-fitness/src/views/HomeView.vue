@@ -235,7 +235,7 @@
             </div>
             <div class="card tipC cardLife">
               <div class="card-body">
-                <h2 class="card-title white">Lift Off Life</h2>
+                <h2 class="card-title">Lift Off Life</h2>
                 <h6 class="card-subtitle mb-2 white">Looking for a personal trainer?</h6>
                 <p class="card-text white">
                   Book a personal trainer to help you on your journey on the following website!
@@ -396,11 +396,11 @@ h2 {
   background-color: #79031d;
   width: 100%;
   height: 450px;
-  border-radius: none;
+  border-radius: 0 !important;
 }
 
 .white {
-  color: #f5f7f7;
+  color: #f5f7f7 !important;
 }
 
 .card-body {
