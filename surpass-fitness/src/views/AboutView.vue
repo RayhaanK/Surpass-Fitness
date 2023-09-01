@@ -314,6 +314,7 @@ export default {};
 .cardChoice {
   background-color: #79031d;
   height: 19rem;
+  width: 21rem !important;
 }
 
 .card-body {
