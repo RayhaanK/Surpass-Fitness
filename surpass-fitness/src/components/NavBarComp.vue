@@ -69,7 +69,7 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <router-link to="#" class="dropdown-item">FAQS</router-link>
+                <router-link to="/product" class="dropdown-item">FAQS</router-link>
               </li>
               <li>
                 <router-link to="#" class="dropdown-item">FAQS</router-link>
