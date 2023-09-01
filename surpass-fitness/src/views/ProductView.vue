@@ -91,7 +91,7 @@
           </div>
         </div>
         <div class="right d-flex justify-content-center ms-4 mt-3">
-            <div class="row row-cols-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
                 <div class="col">
                     <div class="card cardChoice" style="width: 18rem">
               <h2 class="card-title headgingChoice p-4">
@@ -199,6 +199,7 @@ h2 {
 img {
   height: 90vh;
   width: 100%;
+  aspect-ratio: 1/1;
 }
 
 .img {
