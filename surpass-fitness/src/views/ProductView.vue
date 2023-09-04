@@ -91,92 +91,23 @@
           </div>
         </div>
         <div class="right d-flex justify-content-center ms-4 mt-3">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
-                <div class="col">
-                    <div class="card cardChoice" style="width: 18rem">
-              <h2 class="card-title headgingChoice p-4">
-                <i class="bi bi-bicycle"></i> Delivery
-              </h2>
-              <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
-                <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+            <div class="col g-5" v-for="product in products" :key="product.prodID">
+              <div class="card">
+                <div class="image">
+                  <img
+                    :src="product.prodImage"
+                    class="card-img-top prodImg"
+                    :alt="product.prodTitle"
+                  />
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.prodTitle }}</h5>
+                  <p class="card-text">R{{ product.prodPrice }}</p>
+                </div>
               </div>
             </div>
-                </div>
-                <div class="col">
-                    <div class="card cardChoice" style="width: 18rem">
-              <h2 class="card-title headgingChoice p-4">
-                <i class="bi bi-bicycle"></i> Delivery
-              </h2>
-              <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
-                <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-                </div>
-                <div class="col">
-                    <div class="card cardChoice" style="width: 18rem">
-              <h2 class="card-title headgingChoice p-4">
-                <i class="bi bi-bicycle"></i> Delivery
-              </h2>
-              <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
-                <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-                </div>
-                <div class="col">
-                    <div class="card cardChoice" style="width: 18rem">
-              <h2 class="card-title headgingChoice p-4">
-                <i class="bi bi-bicycle"></i> Delivery
-              </h2>
-              <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
-                <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-                </div>
-                <div class="col">
-                    <div class="card cardChoice" style="width: 18rem">
-              <h2 class="card-title headgingChoice p-4">
-                <i class="bi bi-bicycle"></i> Delivery
-              </h2>
-              <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
-                <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-                </div>
-                <div class="col">
-                    <div class="card cardChoice" style="width: 18rem">
-              <h2 class="card-title headgingChoice p-4">
-                <i class="bi bi-bicycle"></i> Delivery
-              </h2>
-              <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
-                <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-                </div>
-            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -184,7 +115,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("fetchProducts");
+  },
+};
 </script>
 
 <style scoped>
@@ -193,7 +133,7 @@ export default {};
 }
 
 h2 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 img {
@@ -207,14 +147,17 @@ img {
 }
 
 .products {
-  height: 100vh;
+  height: max-content;
 }
 
 .left {
   width: 26%;
   border-right: 1px solid black;
   padding: 1rem;
-  height: 100vh;
+}
+
+.right {
+  width: 74%;
 }
 
 /* .filter {
@@ -228,5 +171,33 @@ img {
   padding: 0.5rem;
   border-radius: 20px;
   border: none;
+}
+
+.card {
+  height: 21rem;
+  width: 17rem;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 1rem;
+}
+
+
+.card-text {
+  height: 50px;
+  overflow: auto;
+}
+/* .prodImg {
+  width: 10rem;
+} */
+
+.card-img-top {
+  height: 15rem;
+  object-fit: contain;
 }
 </style>
