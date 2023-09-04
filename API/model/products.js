@@ -21,7 +21,7 @@ class Products {
          // Fetch All Products
     fetchProducts(req, res) {
         const query = `
-              SELECT prodID, prodTitle, prodPrice, category, content, prodImage
+              SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
               FROM Products;
               `;
         db.query(query, (err, results) => {
@@ -37,7 +37,7 @@ class Products {
   fetchProduct(req, res) {
     const id = req.params.id;
     const query = `
-          SELECT prodID, prodTitle, prodPrice, category, content, prodImage
+          SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
           FROM Products
           WHERE prodID = ?
           `;
@@ -84,7 +84,7 @@ class Products {
 
   sortProductsByName(req, res) {
     const query = `
-    SELECT prodID, prodTitle, prodPrice, category, content, prodImage
+    SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
     FROM Products
     ORDER BY prodName;
     `
