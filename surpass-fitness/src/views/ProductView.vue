@@ -91,8 +91,14 @@
           </div>
         </div>
         <div class="right d-flex justify-content-center ms-4 mt-3">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
-            <div class="col g-5" v-for="product in products" :key="product.prodID">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col" v-for="product in products" :key="product.prodID">
+              <router-link 
+              :to="{
+                  name: 'single',
+                  params: { prodID: product.prodID }
+                  }"
+               ><button class="rbtn mt-2 mb-5">
               <div class="card">
                 <div class="image">
                   <img
@@ -106,6 +112,7 @@
                   <p class="card-text">R{{ product.prodPrice }}</p>
                 </div>
               </div>
+            </button></router-link>
             </div>
           </div>
         </div>
@@ -160,10 +167,6 @@ img {
   width: 74%;
 }
 
-/* .filter {
-  display: flex;
-} */
-
 .btn1 {
   width: 10rem;
   background-color: #edb518;
@@ -188,14 +191,9 @@ img {
 }
 
 
-.card-text {
-  height: 50px;
-  overflow: auto;
+.rbtn{
+  border: none;
 }
-/* .prodImg {
-  width: 10rem;
-} */
-
 .card-img-top {
   height: 15rem;
   object-fit: contain;
