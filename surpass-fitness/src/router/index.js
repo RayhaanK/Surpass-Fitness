@@ -27,6 +27,11 @@ const routes = [
     name: 'single',
     props: true,
     component: () => import('../views/SingleView.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../views/AdminView.vue')
   }
 ]
 
