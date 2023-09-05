@@ -22,6 +22,12 @@ const routes = [
     name: 'contact',
     component: () => import( '../views/ContactView.vue')
   },
+  {
+    path: '/single/:prodID',
+    name: 'single',
+    props: true,
+    component: () => import('../views/SingleView.vue')
+  }
 ]
 
 const router = createRouter({
