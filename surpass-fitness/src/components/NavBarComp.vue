@@ -132,6 +132,6 @@ i:hover {
 }
 
 img {
-    width: 13rem;
+    width: 12rem;
 }
 </style>

@@ -11,13 +11,13 @@
       </div>
     </section>
     <section id="products" class="products">
-      <div class="container-fluid d-flex">
+      <div class="container-fluid d-flex productDisplay">
         <div class="left">
           <div class="search">
             <h2>PRODUCT SEARCH</h2>
             <form class="d-flex" role="search">
               <input
-                class="form-control ms-2 me-3"
+                class="form-control me-3"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
@@ -27,7 +27,7 @@
               </button>
             </form>
           </div>
-          <div class="filter mt-5 mb-5">
+          <div class="filter mt-lg-5 mb-lg-5">
             <h2>SORT BY:</h2>
             <div class="dropdown ms-3">
               <button
@@ -47,7 +47,7 @@
               </ul>
             </div>
           </div>
-          <div class="category mt-2">
+          <div class="category d-none d-lg-block mt-2">
             <h2>CATEGORIES</h2>
             <div class="list-group">
               <a
@@ -90,7 +90,27 @@
             </div>
           </div>
         </div>
-        <div class="right d-flex justify-content-center ms-4 mt-3">
+          <div class="category d-block d-lg-none mt-2">
+            <h2>CATEGORIES</h2>
+            <div class="dropdown ms-3">
+              <button
+                class="btn1 dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown button
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <div class="right d-flex justify-content-center ms-lg-4 mt-3">
           <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
             <div class="col" v-for="product in products" :key="product.prodID">
               <router-link 
@@ -197,5 +217,40 @@ img {
 .card-img-top {
   height: 15rem;
   object-fit: contain;
+}
+
+@media (max-width: 1000px) {
+  .productDisplay {
+    flex-direction: column !important;
+  }
+
+  .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-right: none;
+    flex-direction: column;
+  }
+
+  .right {
+    width: 100%;
+  }
+  .filter {
+    margin-top: 1.5rem;
+  }
+
+  .category {
+    border-bottom: 1px solid black;
+    padding: 1rem;
+  }
+}
+@media (max-width: 600px) {
+
+
+  .category {
+    border-bottom: 1px solid black;
+  }
+
+
 }
 </style>
