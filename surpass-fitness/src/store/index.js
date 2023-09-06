@@ -1,7 +1,12 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 import axios from "axios";
+import sweet from "sweetalert";
+import router from "@/router";
+import { useCookies } from "vue3-cookies";
+const { cookies } = useCookies();
+import authenticateUser from '@/services/authenticateUser.js';
 
-const dataUrl = "https://surpass-fitness.onrender.com/"
+const dataUrl = "https://surpass-fitness.onrender.com/";
 
 export default createStore({
   state: {
@@ -13,8 +18,7 @@ export default createStore({
     token: null,
     msg: null,
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
     setUsers(state, users) {
       state.users = users;
@@ -48,6 +52,39 @@ export default createStore({
         context.commit("setMsg", "An error has occured");
       }
     },
+    async fetchUser(context) {
+      try {
+        const { data } = await axios.get(`${dataUrl}user/:id`);
+        context.commit("setUser", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An error has occured");
+      }
+    },
+
+    async registerUser(context, payload) {
+      try {
+        const { msg } = (await axios.post(`${dataUrl}user`, payload)).data;
+        if (msg) {
+          sweet({
+            title: "Registration Complete",
+            text: msg,
+            icon: "success",
+            timer: 3000,
+          });
+          context.dispatch("fetchUsers");
+          router.push({ name: "login" });
+        } else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 3000,
+          });
+        }
+      } catch (e) {
+        context.commit(console.log(e));
+      }
+    },
     // Product
     async fetchProducts(context) {
       try {
@@ -59,10 +96,10 @@ export default createStore({
     },
     async fetchProduct(context, prodID) {
       try {
-        const { data } = await axios.get(`${dataUrl}product/${prodID}`) 
-        context.commit("setProduct", data.result)
-      } catch(e) {
-        context.commit("setMsg", "An error occured")
+        const { data } = await axios.get(`${dataUrl}product/${prodID}`);
+        context.commit("setProduct", data.result);
+      } catch (e) {
+        context.commit("setMsg", "An error occured");
       }
     },
     async addProduct(context, payload) {
@@ -70,7 +107,7 @@ export default createStore({
         const response = await axios.post(`${dataUrl}product`, payload);
         if (response) {
           context.commit("addProduct", response.data);
-          context.dispatch("fetchProducts")
+          context.dispatch("fetchProducts");
           console.log(response.data);
         } else {
           context.commit("setMsg", "An error has occured");
@@ -82,9 +119,9 @@ export default createStore({
     async deleteProduct(context, prodID) {
       try {
         const response = await axios.delete(`${dataUrl}product/${prodID}`);
-        if(response) {
-          context.commit('deleteProduct', response)
-          context.dispatch("fetchProducts")
+        if (response) {
+          context.commit("deleteProduct", response);
+          context.dispatch("fetchProducts");
         } else {
           context.commit("setMsg", "An error has occured");
         }
@@ -94,18 +131,20 @@ export default createStore({
     },
     async editProduct(context, payload) {
       try {
-        const response = await axios.patch(`${dataUrl}product/${payload.prodID}`, payload);
-        if(response) {
-          context.commit('editProduct', response)
-          context.dispatch("fetchProducts")
+        const response = await axios.patch(
+          `${dataUrl}product/${payload.prodID}`,
+          payload
+        );
+        if (response) {
+          context.commit("editProduct", response);
+          context.dispatch("fetchProducts");
         } else {
           context.commit("setMsg", "An error has occured");
         }
       } catch (e) {
         context.commit("setMsg", "An error has occured");
       }
-    }, 
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+});
