@@ -16,89 +16,91 @@
             <h5>SIGN UP FOR AN ACCOUNT NOW!</h5>
             <form @submit.prevent="register">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
+                <label for="firstName" class="form-label"
                   >First Name</label
                 >
                 <input
                   type="name"
                   class="form-control"
-                  id="exampleFormControlInput1"
+                  id="firstName"
                   placeholder="First Name"
                   v-model="payload.firstName"
                   required
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
+                <label for="lastName" class="form-label"
                   >Last Name</label
                 >
                 <input
                   type="surname"
                   class="form-control"
-                  id="exampleFormControlInput1"
+                  id="lastName"
                   placeholder="Last Name"
                   v-model="payload.lastName"
                   required
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
+                <label for="age" class="form-label"
                   >Age</label
                 >
                 <input
                   type="age"
                   class="form-control"
-                  id="exampleFormControlInput1"
+                  id="age"
                   placeholder="Age"
                   v-model="payload.userAge"
                   required
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
+                <label for="gender" class="form-label"
                   >Gender</label
                 >
                 <input
                   type="gender"
                   class="form-control"
-                  id="exampleFormControlInput1"
+                  id="gender"
                   placeholder="email@gmail.com"
                   v-model="payload.gender"
                   required
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
+                <label for="emailAddress" class="form-label"
                   >Email Adress</label
                 >
                 <input
                   type="email"
                   class="form-control"
-                  id="exampleFormControlInput1"
+                  id="emailAddress"
                   placeholder="email@gmail.com"
                   v-model="payload.userEmail"
                   required
                 />
               </div>
               <div class="mb-3">
-                <label for="inputPassword5" class="form-label">Password</label>
+                <label for="userPass" class="form-label">Password</label>
                 <input
                   type="password"
-                  id="inputPassword5"
+                  id="userPass"
                   class="form-control"
+                  minlength = "5"
+                  maxlength = "12"
                   aria-describedby="passwordHelpBlock"
                   v-model="payload.userPass"
                   required
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
+                <label for="userImage" class="form-label"
                   >Profile Image Link</label
                 >
                 <input
                   type="link"
                   class="form-control"
-                  id="exampleFormControlInput1"
+                  id="userImage"
                   placeholder="postimages"
                   v-model="payload.userImage"
                   required
@@ -132,7 +134,7 @@ export default {
   },
   methods: {
     register() {
-        this.$store.dispatch('addUser', this.payload)
+        this.$store.dispatch('registerUser', this.payload)
     }
   }
 };
