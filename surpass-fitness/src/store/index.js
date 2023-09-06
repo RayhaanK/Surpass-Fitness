@@ -92,9 +92,9 @@ export default createStore({
         context.commit("setMsg", "An error has occured");
       }
     },
-    async editProduct(context, prodID) {
+    async editProduct(context, payload) {
       try {
-        const response = await axios.patch(`${dataUrl}product/${prodID}`);
+        const response = await axios.patch(`${dataUrl}product/${payload.prodID}`, payload);
         if(response) {
           context.commit('editProduct', response)
           context.dispatch("fetchProducts")
@@ -104,7 +104,7 @@ export default createStore({
       } catch (e) {
         context.commit("setMsg", "An error has occured");
       }
-    },
+    }, 
   },
   modules: {
   }
