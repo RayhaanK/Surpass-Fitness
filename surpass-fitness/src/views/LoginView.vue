@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="loginForm p-4">
           <h2>LOGIN!</h2>
-          <form>
+          <form @submit.prevent="login">
             <div class="mb-4 mt-5">
               <label for="exampleFormControlInput1" class="form-label"
                 >Email address</label
@@ -14,6 +14,7 @@
                 class="form-control"
                 id="exampleFormControlInput1"
                 placeholder="name@example.com"
+                v-model="payload.userEmail"
                 required
               />
             </div>
@@ -24,10 +25,11 @@
                 id="inputPassword5"
                 class="form-control"
                 aria-describedby="passwordHelpBlock"
+                v-model="payload.userPass"
                 required
               />
             </div>
-            <div class="loginBtn"><button>LOGIN</button></div>
+            <div class="loginBtn"><button type="submit">LOGIN</button></div>
           </form>
         </div>
       </div>
@@ -36,7 +38,34 @@
 </template>
 
 <script>
-export default {};
+import { useCookies } from "vue3-cookies";
+const { cookies } = useCookies();
+export default {
+  data() {
+    return {
+      payload: {
+        userEmail: "",
+        userPass: "",
+      },
+    };
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  methods: {
+    login() {
+      this.$store.dispatch("loginUser", this.payload);
+    },
+    beforeCreate() {
+      this.$store.dispatch("fetchUsers");
+    },
+    mounted() {
+      console.log(cookies.get("LegitUser"));
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -45,10 +74,10 @@ export default {};
 }
 
 .container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
 
 .loginForm {

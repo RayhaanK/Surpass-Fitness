@@ -85,6 +85,35 @@ export default createStore({
         context.commit(console.log(e));
       }
     },
+    async loginUser(context, payload) {
+      try {
+        const { msg, token, result} = (
+          await axios.post(`${dataUrl}login`, payload)
+        ).data
+        console.log(msg, token, result);
+        if (result) {
+          context.commit("setUser", {result, msg})
+          cookies.set("LegitUser", {msg, token, result})
+          authenticateUser.applyToken(token)
+          sweet({
+            title: msg,
+            text: `${result?.firstName} ${result?.lastName} has logged in!`,
+            icon: "success",
+            timer: 3000,
+          })
+          router.push({ name: "home"})
+        } else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 3000
+          })
+        }
+      } catch(e) {
+        context.commit(console.log((e)))
+      }
+    },
     // Product
     async fetchProducts(context) {
       try {
