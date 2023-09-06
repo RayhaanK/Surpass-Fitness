@@ -91,6 +91,7 @@ export default {
       editProduct: {
         ...this.product,
       },
+      editProductID: null,
       editProd: {
         prodTitle: "",
         category: "",

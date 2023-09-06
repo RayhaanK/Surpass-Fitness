@@ -32,7 +32,14 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')
-  }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../views/RegisiterView.vue')
+  },
+  
+  
 ]
 
 const router = createRouter({
