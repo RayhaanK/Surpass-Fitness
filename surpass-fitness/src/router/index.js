@@ -29,6 +29,36 @@ const routes = [
     component: () => import('../views/SingleView.vue')
   },
   {
+    path: '/treadmill',
+    name: 'treadmill',
+    component: () => import('../views/TreadmillView.vue')
+  },
+  {
+    path: '/exercisebikes',
+    name: 'exercisebikes',
+    component: () => import('../views/ExerciseBikesView.vue')
+  },
+  {
+    path: '/benches',
+    name: 'benches',
+    component: () => import('../views/BenchesView.vue')
+  },
+  {
+    path: '/yogamats',
+    name: 'yogamats',
+    component: () => import('../views/YogaMatsView.vue')
+  },
+  {
+    path: '/weights',
+    name: 'weights',
+    component: () => import('../views/WeightsView.vue')
+  },
+  {
+    path: '/dumbbells',
+    name: 'dumbbells',
+    component: () => import('../views/DumbbellsView.vue')
+  },
+  {
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')

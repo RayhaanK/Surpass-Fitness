@@ -50,7 +50,7 @@
           <div class="category mt-2">
             <h2>CATEGORIES</h2>
             <div class="catList">
-               <router-link class="catLink" to="/product">Products</router-link>
+              <router-link class="catLink" to="/product">Products</router-link>
               <router-link class="catLink" to="/treadmill"
                 >Treadmills</router-link
               >
@@ -68,9 +68,13 @@
             </div>
           </div>
         </div>
-        <div class="right d-flex justify-content-center ms-lg-4 mt-3">
+        <div class="right d-flex justify-content-center ms-lg-4">
           <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div class="col" v-for="product in products" :key="product.prodID">
+            <div
+              class="col p-3 p-lg-5"
+              v-for="product in products"
+              :key="product.prodID"
+            >
               <router-link
                 :to="{
                   name: 'single',
@@ -108,7 +112,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchDumbbells");
   },
 };
 </script>
@@ -190,14 +194,15 @@ img {
     flex-direction: column;
   }
 
+  .right {
+    width: 100%;
+  }
+
   .catList {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  .right {
-    width: 100%;
-  }
   .filter {
     margin-top: 1.5rem;
   }
