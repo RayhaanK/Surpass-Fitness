@@ -49,31 +49,31 @@ routes.get('/product/:id', (req, res)=>{
     products.fetchProduct(req, res)
 })
 
-routes.get('/product/treadmills', (req, res)=>{
+routes.get('/products/treadmills', (req, res)=>{
     products.fetchTreadmills(req, res)
 })
 
-routes.get('/product/exercisebikes', (req, res)=>{
+routes.get('/products/exercisebikes', (req, res)=>{
     products.fetchExerciseBikes(req, res)
 })
 
-routes.get('/product/benches', (req, res)=>{
+routes.get('/products/benches', (req, res)=>{
     products.fetchBenches(req, res)
 })
 
-routes.get('/product/yogamats', (req, res)=>{
+routes.get('/products/yogamats', (req, res)=>{
     products.fetchYogaMats(req, res)
 })
 
-routes.get('/product/weights', (req, res)=>{
+routes.get('/products/weights', (req, res)=>{
     products.fetchWeights(req, res)
 })
 
-routes.get('/product/dumbbell', (req, res)=>{
+routes.get('/products/dumbbells', (req, res)=>{
     products.fetchDumbbell(req, res)
 })
 
-routes.get('/product/dumbbell', (req, res)=>{
+routes.get('/products/dumbbell', (req, res)=>{
     products.fetchDumbbell(req, res)
 })
 

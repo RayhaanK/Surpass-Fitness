@@ -54,7 +54,8 @@ class Products {
     const query = `
     SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
     FROM Products
-    WHERE category = 'Treadmill' 
+    WHERE category 
+    IN ("Treadmill");
     `
     db.query(query, (err, results) => {
       if (err) throw err;
@@ -69,7 +70,8 @@ class Products {
     const query = `
     SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
     FROM Products
-    WHERE category = 'Exercise Bikes' 
+    WHERE category
+    IN ("Exercise Bikes"); 
     `
     db.query(query, (err, results) => {
       if (err) throw err;
@@ -84,7 +86,8 @@ class Products {
     const query = `
     SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
     FROM Products
-    WHERE category = 'Benches' 
+    WHERE category
+    IN ("Benches"); 
     `
     db.query(query, (err, results) => {
       if (err) throw err;
@@ -99,7 +102,8 @@ class Products {
     const query = `
     SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
     FROM Products
-    WHERE category = 'Yoga Mats' 
+    WHERE category 
+    IN ("Yoga Mats"); 
     `
     db.query(query, (err, results) => {
       if (err) throw err;
@@ -114,7 +118,8 @@ class Products {
     const query = `
     SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
     FROM Products
-    WHERE category = 'Weights' 
+    WHERE category
+    IN ("Weights");
     `
     db.query(query, (err, results) => {
       if (err) throw err;
@@ -129,7 +134,8 @@ class Products {
     const query = `
     SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
     FROM Products
-    WHERE category = 'Dumbbell' 
+    WHERE category
+    IN ("Dumbbell");
     `
     db.query(query, (err, results) => {
       if (err) throw err;
