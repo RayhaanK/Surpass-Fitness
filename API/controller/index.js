@@ -49,6 +49,34 @@ routes.get('/product/:id', (req, res)=>{
     products.fetchProduct(req, res)
 })
 
+routes.get('/product/treadmills', (req, res)=>{
+    products.fetchTreadmills(req, res)
+})
+
+routes.get('/product/exercisebikes', (req, res)=>{
+    products.fetchExerciseBikes(req, res)
+})
+
+routes.get('/product/benches', (req, res)=>{
+    products.fetchBenches(req, res)
+})
+
+routes.get('/product/yogamats', (req, res)=>{
+    products.fetchYogaMats(req, res)
+})
+
+routes.get('/product/weights', (req, res)=>{
+    products.fetchWeights(req, res)
+})
+
+routes.get('/product/dumbbell', (req, res)=>{
+    products.fetchDumbbell(req, res)
+})
+
+routes.get('/product/dumbbell', (req, res)=>{
+    products.fetchDumbbell(req, res)
+})
+
 routes.get('/nameproduct', (req, res)=>{
     products.sortProductsByName(req, res)
 })
@@ -63,6 +91,7 @@ routes.patch('/product/:id', bodyParser.json(), (req, res)=>{
 routes.delete('/product/:id', (req, res)=>{
     products.deleteProduct(req, res)
 })
+
 
 // ================Order's Router=================
 
