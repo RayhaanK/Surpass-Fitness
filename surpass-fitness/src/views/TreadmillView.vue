@@ -50,7 +50,7 @@
           <div class="category mt-2">
             <h2>CATEGORIES</h2>
             <div class="catList">
-               <router-link class="catLink" to="/product">Products</router-link>
+                <router-link class="catLink" to="/product">Products</router-link>
               <router-link class="catLink" to="/treadmill"
                 >Treadmills</router-link
               >
@@ -68,30 +68,29 @@
             </div>
           </div>
         </div>
-        <div class="right d-flex justify-content-center ms-lg-4 mt-3">
+        <div class="right d-flex justify-content-center ms-lg-4">
           <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div class="col" v-for="product in products" :key="product.prodID">
-              <router-link
-                :to="{
+            <div class="col p-3 p-lg-5" v-for="product in products" :key="product.prodID">
+              <router-link 
+              :to="{
                   name: 'single',
-                  params: { prodID: product.prodID },
-                }"
-                ><button class="rbtn mt-2 mb-5">
-                  <div class="card">
-                    <div class="image">
-                      <img
-                        :src="product.prodImage"
-                        class="card-img-top prodImg"
-                        :alt="product.prodTitle"
-                      />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">{{ product.prodTitle }}</h5>
-                      <p class="card-text">R{{ product.prodPrice }}</p>
-                    </div>
-                  </div>
-                </button></router-link
-              >
+                  params: { prodID: product.prodID }
+                  }"
+               ><button class="rbtn mt-2 mb-5">
+              <div class="card">
+                <div class="image">
+                  <img
+                    :src="product.prodImage"
+                    class="card-img-top prodImg"
+                    :alt="product.prodTitle"
+                  />
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.prodTitle }}</h5>
+                  <p class="card-text">R{{ product.prodPrice }}</p>
+                </div>
+              </div>
+            </button></router-link>
             </div>
           </div>
         </div>
@@ -102,13 +101,13 @@
 
 <script>
 export default {
-  computed: {
+    computed: {
     products() {
       return this.$store.state.products;
     },
   },
   mounted() {
-    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchTreadmills");
   },
 };
 </script>

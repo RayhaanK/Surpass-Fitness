@@ -1,13 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 
-  
+.catList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.catLink {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  color: #000407;
+  padding: 0.6rem;
+}
+
+.catLink::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000407;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.catLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

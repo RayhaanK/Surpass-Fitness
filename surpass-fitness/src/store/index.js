@@ -131,6 +131,54 @@ export default createStore({
         context.commit("setMsg", "An error occured");
       }
     },
+    async fetchTreadmills(context) {
+      try {
+        const { data } = await axios.get(`${dataUrl}products/treadmills`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An error occured");
+      }
+    },
+    async fetchExerciseBikes(context) {
+      try {
+        const { data } = await axios.get(`${dataUrl}products/exercisebikes`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An error occured");
+      }
+    },
+    async fetchBenches(context) {
+      try {
+        const { data } = await axios.get(`${dataUrl}products/benches`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An error occured");
+      }
+    },
+    async fetchYogaMats(context) {
+      try {
+        const { data } = await axios.get(`${dataUrl}products/yogamats`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An error occured");
+      }
+    },
+    async fetchWeights(context) {
+      try {
+        const { data } = await axios.get(`${dataUrl}products/weights`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An error occured");
+      }
+    },
+    async fetchDumbbells(context) {
+      try {
+        const { data } = await axios.get(`${dataUrl}products/dumbbells`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An error occured");
+      }
+    },
     async addProduct(context, payload) {
       try {
         const response = await axios.post(`${dataUrl}product`, payload);
