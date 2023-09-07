@@ -50,6 +50,96 @@ class Products {
     });
   }
 
+  fetchTreadmills(req, res) {
+    const query = `
+    SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
+    FROM Products
+    WHERE category = 'Treadmill' 
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results
+      })
+    })
+  }
+
+  fetchExerciseBikes(req, res) {
+    const query = `
+    SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
+    FROM Products
+    WHERE category = 'Exercise Bikes' 
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results
+      })
+    })
+  }
+  
+  fetchBenches(req, res) {
+    const query = `
+    SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
+    FROM Products
+    WHERE category = 'Benches' 
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results
+      })
+    })
+  }
+  
+  fetchYogaMats(req, res) {
+    const query = `
+    SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
+    FROM Products
+    WHERE category = 'Yoga Mats' 
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results
+      })
+    })
+  }
+
+  fetchWeights(req, res) {
+    const query = `
+    SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
+    FROM Products
+    WHERE category = 'Weights' 
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results
+      })
+    })
+  }
+
+  fetchDumbbell(req, res) {
+    const query = `
+    SELECT prodID, prodTitle, prodPrice, category, content, specifications, prodImage
+    FROM Products
+    WHERE category = 'Dumbbell' 
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results
+      })
+    })
+  }
+
   // Update Product Info
   updateProduct(req, res) {
     const data = req.body;
