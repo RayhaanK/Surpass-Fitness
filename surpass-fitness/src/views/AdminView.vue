@@ -34,7 +34,7 @@
               <td>
                 <div class="tableRows">
                   <img
-                    class="img-fluid"
+                    class="img-fluid productImage"
                     :src="product.prodImage"
                     :alt="product.prodTitle"
                     loading="lazy"
@@ -63,7 +63,69 @@
         <spinner/>
       </div>
       </div>
+    <section id="users" class="users">
+      <div class="container-fluid">
+      <h1
+        class="display-3 text-center mb-2 p-4"
+      >
+        User Interface
+      </h1>
+      <div class="container-fluid">
+        <button class="btn2 float-start" id="sort">Sort By ID(asc/desc)</button>
+        <userAdd/>
+      </div>
+      <table
+        class="table table-responsive table-bordered border-black table-hover" v-if="users"
+      >
+        <thead>
+          <tr>
+            <th scope="col">ID#</th>
+            <th scope="col">Image</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">User Role</th>
+            <th scope="col">Email Adress</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="user in users" :key="user.userID">
+            <th>
+              <div class="tableRows">{{ user.userID}}</div>
+            </th>
+            <td>
+              <div class="tableRows">
+                <img class="img-fluid userImage" :src="user.userImage" :alt="user.firstName" loading="lazy" />
+              </div>
+            </td>
+            <td>
+              <div class="tableRows">{{ user.firstName }}  {{ user.lastName }}</div>
+            </td>
+            <td>
+              <div class="tableRows">{{ user.userAge }}</div>
+            </td>
+            <td>
+              <div class="tableRows">{{ user.gender }}</div>
+            </td>
+            <td>
+              <div class="tableRows">{{ user.userRole }}</div>
+            </td>
+            <td>
+              <div class="tableRows">{{ user.userEmail }}</div>
+            </td>
+            <td>
+              <div class="tableRows">
+                <userEdit :user="user"/>
+                <button @click.prevent="deleteUser(user.userID)" class="btn1" id="deleteBtn">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     </section>
+  </section>
   </div>
 </template>
 
@@ -79,19 +141,30 @@ export default {
     products() {
       return this.$store.state.products;
     },
+    users() {
+      return this.$store.state.users;
+    },
   },
   mounted() {
     this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchUsers");
   },
   methods: {
     async deleteProduct(prodID) {
       this.$store.dispatch('deleteProduct', prodID) 
+    },
+    async deleteUser(userID) {
+      this.$store.dispatch('deleteUser', userID) 
     }
   }
 };
 </script>
 
 <style scoped>
+
+.adm {
+  height: 1000vh;
+}
 
 .tableRows {
   display: flex;
@@ -108,6 +181,14 @@ th {
 
 td {
   height: 150px;
+}
+
+.productImage {
+  width: 20rem;
+}
+
+.userImage {
+  width: 7rem;
 }
 
 @media (max-width:702px) {

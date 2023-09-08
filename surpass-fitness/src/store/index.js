@@ -4,7 +4,7 @@ import sweet from "sweetalert";
 import router from "@/router";
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
-import authenticateUser from '@/services/authenticateUser.js';
+import authenticateUser from "@/services/authenticateUser.js";
 
 const dataUrl = "https://surpass-fitness.onrender.com/";
 
@@ -87,31 +87,60 @@ export default createStore({
     },
     async loginUser(context, payload) {
       try {
-        const { msg, token, result} = (
+        const { msg, token, result } = (
           await axios.post(`${dataUrl}login`, payload)
-        ).data
+        ).data;
         console.log(msg, token, result);
         if (result) {
-          context.commit("setUser", {result, msg})
-          cookies.set("LegitUser", {msg, token, result})
-          authenticateUser.applyToken(token)
+          context.commit("setUser", { result, msg });
+          cookies.set("LegitUser", { msg, token, result });
+          authenticateUser.applyToken(token);
           sweet({
             title: msg,
             text: `${result?.firstName} ${result?.lastName} has logged in!`,
             icon: "success",
             timer: 3000,
-          })
-          router.push({ name: "home"})
+          });
+          router.push({ name: "home" });
         } else {
           sweet({
             title: "Error",
             text: msg,
             icon: "error",
-            timer: 3000
-          })
+            timer: 3000,
+          });
         }
-      } catch(e) {
-        context.commit(console.log((e)))
+      } catch (e) {
+        context.commit(console.log(e));
+      }
+    },
+    async deleteUser(context, userID) {
+      try {
+        const {data} = await axios.delete(`${dataUrl}user/${userID}`);
+        if (data) {
+          context.commit("setUsers", data.results);
+          context.dispatch("fetchUsers")
+        } else {
+          context.commit("setMsg", "An error has occured");
+        }
+      } catch (e) {
+        context.commit("setMsg", "An error has occured");
+      }
+    },
+    async editUser(context, payload) {
+      try {
+        const {data} = await axios.patch(
+          `${dataUrl}user/${payload.userID}`,
+          payload
+        );
+        if (data) {
+          context.commit("editUser", data.results);
+          context.dispatch("fetchUsers");
+        } else {
+          context.commit("setMsg", "An error has occured");
+        }
+      } catch (e) {
+        context.commit("setMsg", "An error has occured");
       }
     },
     // Product
