@@ -38,11 +38,18 @@
               >
                 Dropdown button
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+              <ul class="dropdown-menu text-center">
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <button class="btn2" @click="sortAlphabeticallyAsc()">Alphatically(A-Z)</button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAlphabeticallyDesc()">Alphatically(Z-A)</button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAmountAsc()">Price: Low to High</button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAmountDesc()">Price: High to Low</button>
                 </li>
               </ul>
             </div>
@@ -50,7 +57,7 @@
           <div class="category mt-2">
             <h2>CATEGORIES</h2>
             <div class="catList">
-               <router-link class="catLink" to="/product">Products</router-link>
+              <router-link class="catLink" to="/product">Products</router-link>
               <router-link class="catLink" to="/treadmill"
                 >Treadmills</router-link
               >
@@ -110,6 +117,58 @@ export default {
   mounted() {
     this.$store.dispatch("fetchProducts");
   },
+  methods: {
+    sortAlphabeticallyAsc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+
+        if (prodTitleA < prodTitleB) {
+          return this.inAsc ? -1 : 1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAlphabeticallyDesc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+        if (prodTitleA > prodTitleB) {
+          return this.inAsc ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAmountAsc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodAmountA = a.prodPrice;
+        const prodAmountB = b.prodPrice;
+
+        if (prodAmountA < prodAmountB) {
+          return this.inAsc ? -1 : 1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAmountDesc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodAmountA = a.prodPrice;
+        const prodAmountB = b.prodPrice;
+         if (prodAmountA > prodAmountB) {
+          return this.inAsc ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    },
+  },
 };
 </script>
 
@@ -146,12 +205,26 @@ img {
   width: 74%;
 }
 
+.dropdown-menu {
+  width: 12rem;
+}
+
 .btn1 {
-  width: 10rem;
+  width: 12rem;
   background-color: #edb518;
   color: #79031d;
   padding: 0.5rem;
-  border-radius: 20px;
+  /* border-radius: 20px; */
+  border: none;
+}
+
+.btn2 {
+  width: 9rem;
+  background-color: #edb518;
+  color: #79031d;
+  padding: 0.2rem;
+  outline: 1px solid #79031d;
+  margin-top: 0.2rem;
   border: none;
 }
 

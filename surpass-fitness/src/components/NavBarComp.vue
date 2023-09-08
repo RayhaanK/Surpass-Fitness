@@ -69,17 +69,25 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <router-link to="/product" class="dropdown-item">FAQS</router-link>
+                <router-link to="/product" class="dropdown-item">Products</router-link>
               </li>
               <li>
-                <router-link to="#" class="dropdown-item">FAQS</router-link>
+                <router-link to="/treadmill" class="dropdown-item">Treadmills</router-link>
               </li>
               <li>
-                <router-link to="#" class="dropdown-item">FAQS</router-link>
+                <router-link to="/exercisebikes" class="dropdown-item">Exercise Bikes</router-link>
               </li>
-              <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link to="#" class="dropdown-item">FAQS</router-link>
+                <router-link to="/benches" class="dropdown-item">Benches</router-link>
+              </li>
+              <li>
+                <router-link to="/yogamats" class="dropdown-item">Yoga Mats</router-link>
+              </li>
+              <li>
+                <router-link to="/weights" class="dropdown-item">Weights</router-link>
+              </li>
+              <li>
+                <router-link to="/dumbbells" class="dropdown-item">Dumbbells</router-link>
               </li>
             </ul>
           </li>
