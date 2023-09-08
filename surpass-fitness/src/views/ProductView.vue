@@ -17,14 +17,12 @@
             <h2>PRODUCT SEARCH</h2>
             <form class="d-flex" role="search">
               <input
-                class="form-control me-3"
+                class="form-control mx-auto search"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                v-model="searchQuery"
               />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
             </form>
           </div>
           <div class="filter mt-lg-5 mb-lg-5">
@@ -40,16 +38,24 @@
               </button>
               <ul class="dropdown-menu text-center">
                 <li>
-                  <button class="btn2" @click="sortAlphabeticallyAsc()">Alphatically(A-Z)</button>
+                  <button class="btn2" @click="sortAlphabeticallyAsc()">
+                    Alphatically(A-Z)
+                  </button>
                 </li>
                 <li>
-                  <button class="btn2" @click="sortAlphabeticallyDesc()">Alphatically(Z-A)</button>
+                  <button class="btn2" @click="sortAlphabeticallyDesc()">
+                    Alphatically(Z-A)
+                  </button>
                 </li>
                 <li>
-                  <button class="btn2" @click="sortAmountAsc()">Price: Low to High</button>
+                  <button class="btn2" @click="sortAmountAsc()">
+                    Price: Low to High
+                  </button>
                 </li>
                 <li>
-                  <button class="btn2" @click="sortAmountDesc()">Price: High to Low</button>
+                  <button class="btn2" @click="sortAmountDesc()">
+                    Price: High to Low
+                  </button>
                 </li>
               </ul>
             </div>
@@ -76,8 +82,12 @@
           </div>
         </div>
         <div class="right d-flex justify-content-center ms-lg-4 mt-3">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div class="col" v-for="product in products" :key="product.prodID">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex justify-content-center">
+            <div
+              class="col p-2 p-lg-4"
+              v-for="product in filteredProducts"
+              :key="product.prodID"
+            >
               <router-link
                 :to="{
                   name: 'single',
@@ -109,13 +119,28 @@
 
 <script>
 export default {
+  data() {
+    return {
+      searchQuery: "",
+    };
+  },
   computed: {
     products() {
-      return this.$store.state.products;
+      return this.$store.state.products || [];
     },
-  },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
+    filteredProducts() {
+      if (!this.products) {
+        return [];
+      }
+      return this.products.filter((product) => {
+        const prodTitle = product?.prodTitle?.toLowerCase();
+        const category = product?.Category?.toLowerCase();
+        return (
+          (prodTitle && prodTitle.includes(this.searchQuery.toLowerCase())) ||
+          (category && category.includes(this.searchQuery.toLowerCase()))
+        );
+      });
+    },
   },
   methods: {
     sortAlphabeticallyAsc() {
@@ -161,7 +186,7 @@ export default {
       this.products.sort((a, b) => {
         const prodAmountA = a.prodPrice;
         const prodAmountB = b.prodPrice;
-         if (prodAmountA > prodAmountB) {
+        if (prodAmountA > prodAmountB) {
           return this.inAsc ? 1 : -1;
         } else {
           return 0;
@@ -169,12 +194,19 @@ export default {
       });
     },
   },
+  mounted() {
+    this.$store.dispatch("fetchProducts");
+  },
 };
 </script>
 
 <style scoped>
 .landing {
   height: 90vh;
+}
+
+.col {
+  width: max-content;
 }
 
 h2 {
