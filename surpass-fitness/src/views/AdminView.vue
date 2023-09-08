@@ -10,7 +10,7 @@
           <AddButton />
         </div>
         <table
-          class="table table-responsive table-bordered border-black table-hover"
+          class="table table-responsive table-bordered border-black table-hover" v-if="products"
         >
           <thead>
             <tr>
@@ -59,6 +59,9 @@
             </tr>
           </tbody>
         </table>
+        <div v-else class="row">
+        <spinner/>
+      </div>
       </div>
     </section>
   </div>
@@ -67,9 +70,10 @@
 <script>
 import AddButton from "@/components/AddProductComp.vue"
 import EditButton from "@/components/EditProductComp.vue"
+import Spinner from "@/components/SpinnerComp.vue"
 export default {
     components: {
-        AddButton, EditButton
+        AddButton, EditButton, Spinner
   },
   computed: {
     products() {
