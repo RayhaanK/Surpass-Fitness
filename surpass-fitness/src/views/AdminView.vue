@@ -123,6 +123,9 @@
           </tr>
         </tbody>
       </table>
+      <div v-else class="row">
+        <spinner/>
+      </div>
     </div>
     </section>
   </section>

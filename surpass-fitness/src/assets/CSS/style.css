@@ -42,3 +42,14 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+.btn2 {
+  width: 9rem;
+  background-color: #edb518;
+  color: #79031d;
+  padding: 0.2rem;
+  outline: 1px solid #79031d;
+  margin-top: 0.2rem;
+  border: none;
+}
+

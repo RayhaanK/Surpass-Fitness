@@ -17,14 +17,12 @@
             <h2>PRODUCT SEARCH</h2>
             <form class="d-flex" role="search">
               <input
-                class="form-control me-3"
+                class="form-control mx-auto search"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                v-model="searchQuery"
               />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
             </form>
           </div>
           <div class="filter mt-lg-5 mb-lg-5">
@@ -38,11 +36,26 @@
               >
                 Dropdown button
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+              <ul class="dropdown-menu text-center">
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <button class="btn2" @click="sortAlphabeticallyAsc()">
+                    Alphatically(A-Z)
+                  </button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAlphabeticallyDesc()">
+                    Alphatically(Z-A)
+                  </button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAmountAsc()">
+                    Price: Low to High
+                  </button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAmountDesc()">
+                    Price: High to Low
+                  </button>
                 </li>
               </ul>
             </div>
@@ -72,7 +85,7 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
             <div
               class="col p-3 p-lg-5"
-              v-for="product in products"
+              v-for="product in filteredProducts"
               :key="product.prodID"
             >
               <router-link
@@ -106,9 +119,79 @@
 
 <script>
 export default {
+  data() {
+    return {
+      searchQuery: "",
+    };
+  },
   computed: {
     products() {
-      return this.$store.state.products;
+      return this.$store.state.products || [];
+    },
+    filteredProducts() {
+      if (!this.products) {
+        return [];
+      }
+      return this.products.filter((product) => {
+        const prodTitle = product?.prodTitle?.toLowerCase();
+        const category = product?.Category?.toLowerCase();
+        return (
+          (prodTitle && prodTitle.includes(this.searchQuery.toLowerCase())) ||
+          (category && category.includes(this.searchQuery.toLowerCase()))
+        );
+      });
+    },
+  },
+  methods: {
+    sortAlphabeticallyAsc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+
+        if (prodTitleA < prodTitleB) {
+          return this.inAsc ? -1 : 1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAlphabeticallyDesc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+        if (prodTitleA > prodTitleB) {
+          return this.inAsc ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAmountAsc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodAmountA = a.prodPrice;
+        const prodAmountB = b.prodPrice;
+
+        if (prodAmountA < prodAmountB) {
+          return this.inAsc ? -1 : 1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAmountDesc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodAmountA = a.prodPrice;
+        const prodAmountB = b.prodPrice;
+        if (prodAmountA > prodAmountB) {
+          return this.inAsc ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
     },
   },
   mounted() {
@@ -151,14 +234,13 @@ img {
 }
 
 .btn1 {
-  width: 10rem;
+  width: 12rem;
   background-color: #edb518;
   color: #79031d;
   padding: 0.5rem;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   border: none;
 }
-
 .card {
   height: 21rem;
   width: 17rem;
