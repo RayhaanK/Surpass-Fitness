@@ -33,60 +33,65 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="https://i.postimg.cc/y8x9QGTq/karsten-winegeart-0-Wra5-YYVQJE-unsplash.jpg"
+                  src="https://i.postimg.cc/rsjQt4CT/anastase-maragos-9dz-WZQWZMd-E-unsplash.jpg"
                   class="d-block w-100 img-fluid cImg"
                   loading="lazy"
                   alt="..."
                 />
                 <div class="container">
                   <div class="carousel-caption text-end">
-                    <h1>One more for good measure.</h1>
-                    <p>
-                      Some representative placeholder content for the third
-                      slide of this carousel.
+                    <h1 class="carouselHeading">WELCOME TO SURPASS FITNESS</h1>
+                    <p class="carouselText">
+                     We offer a wide range of fitness equipment, so that you can build your fantasy gym.
                     </p>
                     <p>
-                      <a href="#"><button class="btn1">More</button></a>
+                      <router-link to="/about" class="dropdown-item"
+                        ><button class="btn1">About Us</button></router-link
+                      >
                     </p>
                   </div>
                 </div>
               </div>
               <div class="carousel-item">
                 <img
-                  src="https://i.postimg.cc/kGqD67Fb/jelmer-assink-gze-Tj-Gu3b-k-unsplash.jpg"
+                  src="https://i.postimg.cc/tTS3f20b/chuttersnap-B0dx5ptuf50-unsplash.jpg"
                   class="d-block w-100 img-fluid cImg"
                   loading="lazy"
-                  alt="..."
+                  alt="Surpass Fitness"
                 />
                 <div class="container">
                   <div class="carousel-caption text-end">
-                    <h1>One more for good measure.</h1>
+                    <h1 class="carouselHeading">Want to buy something?</h1>
+                    <p class="carouselText">Take a look at our catalogue!</p>
                     <p>
-                      Some representative placeholder content for the third
-                      slide of this carousel.
-                    </p>
-                    <p>
-                      <a href="#"><button class="btn1">More</button></a>
+                      <router-link to="/product" class="dropdown-item"
+                        ><button class="btn1">
+                          View Products
+                        </button></router-link
+                      >
                     </p>
                   </div>
                 </div>
               </div>
               <div class="carousel-item">
                 <img
-                  src="https://i.postimg.cc/hPCbBYcr/danielle-cerullo-CQf-Nt66tt-ZM-unsplash.jpg"
+                  src="https://i.postimg.cc/k4FVnvqn/chase-kinney-FMQBLyh-D2-HU-unsplash.jpg"
                   class="d-block w-100 img-fluid cImg"
                   loading="lazy"
                   alt="..."
                 />
                 <div class="container">
                   <div class="carousel-caption text-end">
-                    <h1>One more for good measure.</h1>
-                    <p>
-                      Some representative placeholder content for the third
-                      slide of this carousel.
+                    <h1 class="carouselHeading">Looking for something that we don't have?</h1>
+                    <p class="carouselText">
+                      Feel free to send us a message and we'll try our best to get it for you!
                     </p>
                     <p>
-                      <a href="#"><button class="btn1">More</button></a>
+                       <router-link to="/contact" class="dropdown-item"
+                        ><button class="btn1">
+                          Contact Us
+                        </button></router-link
+                      >
                     </p>
                   </div>
                 </div>
@@ -136,20 +141,23 @@
                 <div class="cardL">
                   <div class="img-content">
                     <img
-                      src="https://i.postimg.cc/hPCbBYcr/danielle-cerullo-CQf-Nt66tt-ZM-unsplash.jpg"
+                      src="https://i.postimg.cc/4NmgrdcR/alina-chernysheva-JA2-S6s-JWleg-unsplash-1.jpg"
                       class="d-block img-fluid"
                       loading="lazy"
-                      alt="..."
+                      alt="Treadmills"
                     />
                   </div>
                   <div class="content">
-                    <p class="heading">Card Hover</p>
+                    <p class="heading">Treadmills</p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipii voluptas
-                      ten mollitia pariatur odit, ab minus ratione adipisci
-                      accusamus vel est excepturi laboriosam magnam
-                      necessitatibus dignissimos molestias.
+                      Torch calories efficiently either by walking, running or
+                      jogging. Improve your heart health, and achieve your
+                      fitness goals with customized workouts using adjustable
+                      speed and incline settings.
                     </p>
+                    <router-link to="/treadmill"
+                      ><button class="btn1">View Treadmills</button></router-link
+                    >
                   </div>
                 </div>
               </div>
@@ -159,20 +167,20 @@
                 <div class="cardL">
                   <div class="img-content">
                     <img
-                      src="https://i.postimg.cc/hPCbBYcr/danielle-cerullo-CQf-Nt66tt-ZM-unsplash.jpg"
+                      src="https://i.postimg.cc/fWfMQpkD/samuel-girven-BBR-zig-Emy-Q-unsplash.jpg"
                       class="d-block img-fluid"
                       loading="lazy"
-                      alt="..."
+                      alt="Dumbbell"
                     />
                   </div>
                   <div class="content">
-                    <p class="heading">Card Hover</p>
+                    <p class="heading">Dumbell</p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipii voluptas
-                      ten mollitia pariatur odit, ab minus ratione adipisci
-                      accusamus vel est excepturi laboriosam magnam
-                      necessitatibus dignissimos molestias.
+                      Sculpt and tone your muscles with ease, building the physique you desire. . Whether you're a beginner or a seasoned lifter, these dumbbells are your ticket to a stronger, healthier you.
                     </p>
+                    <router-link to="/dumbbells"
+                ><button class="btn1">View Dumbbell</button></router-link
+              >
                   </div>
                 </div>
               </div>
@@ -182,20 +190,20 @@
                 <div class="cardL">
                   <div class="img-content">
                     <img
-                      src="https://i.postimg.cc/hPCbBYcr/danielle-cerullo-CQf-Nt66tt-ZM-unsplash.jpg"
+                      src="https://i.postimg.cc/N0NB8pSZ/the-nix-company-bi-X8s-Bf-Nc-Pc-unsplash.jpg"
                       class="d-block img-fluid"
                       loading="lazy"
                       alt="..."
                     />
                   </div>
                   <div class="content">
-                    <p class="heading">Card Hover</p>
+                    <p class="heading">Yoga Mats</p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipii voluptas
-                      ten mollitia pariatur odit, ab minus ratione adipisci
-                      accusamus vel est excepturi laboriosam magnam
-                      necessitatibus dignissimos molestias.
+                      Experience comfort and stability as you flow through your poses, meditate, or stretch.  Invest in your well-being and embrace the serenity of yoga. <br> Namaste! 
                     </p>
+                    <router-link to="/yogamats"
+                ><button class="btn1">View Yoga Mats</button></router-link
+              >
                   </div>
                 </div>
               </div>
@@ -210,37 +218,49 @@
           <h2 class="mt-4 mb-3">TIPS TO HELP YOU ON YOUR JOURNEY</h2>
         </div>
       </div>
-        <div class="container-fluid d-flex justify-content-center tipContainer">
+      <div class="container-fluid d-flex justify-content-center tipContainer">
         <div class="row">
           <div class="col colT">
-            <div class="card tipC">
+            <div class="card tipC cardAbout">
               <div class="card-body">
                 <h2 class="card-title white">About</h2>
-                <h6 class="card-subtitle mb-2 white">Need some more information?</h6>
+                <h6 class="card-subtitle mb-2 white">
+                  Need some more information?
+                </h6>
                 <p class="card-text white">
-                  Found about more about the comapny and team and frequently asked questions!
+                  Found about more about the comapny and team and frequently
+                  asked questions!
                 </p>
-                <a href="#" class="card-link"><button class="btn1">More</button></a>
+                <a href="#" class="card-link"
+                  ><button class="btn1">More</button></a
+                >
               </div>
             </div>
-            <div class="card tipC">
+            <div class="card tipC cardContact">
               <div class="card-body">
                 <h2 class="card-title mb-4 white">Contact Us</h2>
                 <h6 class="card-subtitle mb-2 white">Have any queries?</h6>
                 <p class="card-text white">
                   Feel free to send us a message on the contact form
                 </p>
-                <a href="#" class="card-link"><button class="btn1">More</button></a>
+                <a href="#" class="card-link"
+                  ><button class="btn1">More</button></a
+                >
               </div>
             </div>
             <div class="card tipC cardLife">
               <div class="card-body">
-                <h2 class="card-title">Lift Off Life</h2>
-                <h6 class="card-subtitle mb-2 white">Looking for a personal trainer?</h6>
+                <h2 class="card-title white">Lift Off Life</h2>
+                <h6 class="card-subtitle mb-2 white">
+                  Looking for a personal trainer?
+                </h6>
                 <p class="card-text white">
-                  Book a personal trainer to help you on your journey on the following website!
+                  Book a personal trainer to help you on your journey on the
+                  following website!
                 </p>
-                <a href="#" class="card-link"><button class="btn1">More</button></a>
+                <a href="#" class="card-link"
+                  ><button class="btn1">More</button></a
+                >
               </div>
             </div>
           </div>
@@ -270,20 +290,30 @@ export default {
 
 <style scoped>
 .carousel-item {
-  height: 85vh;
+  height: 86vh;
 }
 
 .cImg {
-  height: 85vh;
+  height: 86vh;
   object-fit: cover;
+}
+
+.carouselHeading {
+  font-weight: 800;
+  text-shadow: 2px 3px #000407;
+}
+
+.carouselText {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px #000407;
 }
 
 .btn1 {
   background-color: #edb518;
   color: #79031d;
   padding: 0.7rem;
-  border-radius: 25px;
-  width: 10rem;
+  width: 14rem;
   border: none;
 }
 
@@ -299,10 +329,7 @@ h2 {
 .btn1:hover {
   background-color: #79031d;
   color: #edb518;
-  box-shadow: 10px 10px 15px #edb4186b;
-  transition: 0.2s;
 }
-
 
 .category {
   height: max-content;
@@ -327,7 +354,7 @@ h2 {
   overflow: hidden;
 }
 
-.cardL .img-content{
+.cardL .img-content {
   width: 100%;
   height: 100%;
   display: flex;
@@ -393,7 +420,6 @@ h2 {
 }
 
 .tipC {
-  background-color: #79031d;
   width: 100%;
   height: 450px;
   border-radius: 0 !important;
@@ -406,11 +432,23 @@ h2 {
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: end ;
+  justify-content: end;
 }
 
 .cardLife {
   background-image: url(https://i.postimg.cc/PJqYdhgj/Daniel-Gallego-1.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.cardContact {
+  background-image: url(https://i.postimg.cc/ZKR3j6Yg/clem-onojeghuo-7q5ob-KSOKDk-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.cardAbout {
+  background-image: url(https://i.postimg.cc/ryHNthMs/sven-mieke-j-O6v-BWX9h9-Y-unsplash.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -425,10 +463,9 @@ h2 {
     flex-direction: column !important;
   }
 
-.tips {
-  height: max-content ;
-}
-
+  .tips {
+    height: max-content;
+  }
 }
 @media (max-width: 850px) {
   .cImg {
@@ -438,7 +475,6 @@ h2 {
   .carousel-item {
     height: auto;
   }
-
 }
 
 @media (max-width: 425px) {
@@ -451,18 +487,16 @@ h2 {
   }
 
   .img-content img {
-  width: auto;
-  height: 360px;
-  object-fit: cover;
-}
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+  }
 
-
-.cardL-container {
-  width: auto;
-  height: 360px;
-  position: relative;
-}
-
+  .cardL-container {
+    width: 100%;
+    height: 360px;
+    position: relative;
+  }
 }
 @media (max-width: 320px) {
   .cardS {
