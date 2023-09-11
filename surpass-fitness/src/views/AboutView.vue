@@ -1,34 +1,27 @@
 <template>
   <div>
     <section id="AboutUs" class="aboutUs">
-      <div class="container-fluid aboutContain mt-md-4 mt-0">
-        <div class="card mt-5 mt-md-0">
-          <div class="row g-0">
-            <div class="col-md-4 d-flex justify-content-center">
-              <img
-                src="https://i.postimg.cc/hPCbBYcr/danielle-cerullo-CQf-Nt66tt-ZM-unsplash.jpg"
-                class="d-block img-fluid ourImage"
-                loading="lazy"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8 colText">
-              <div class="card-body">
-                <h2 class="card-title">OUR STORY</h2>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
-                  dolor! Doloremque blanditiis magnam voluptatum obcaecati at
-                  dolorem et tenetur ut dolor dolorum? Reiciendis veniam,
-                  voluptatem minus exercitationem saepe nulla provident? Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Nam
-                  accusantium facere, incidunt tenetur maiores possimus
-                  voluptatibus perferendis fuga, ex ut aliquam veniam, porro
-                  beatae amet soluta! Veniam doloremque voluptatibus iste.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="container-fluid aboutContain mt-md-4 mt-4">
+        <h2>OUR STORY</h2>
+        <p class="aboutText">
+          At Surpass Fitness, we're more than just a fitness equipment retailer
+          – we're your dedicated partner on your journey to a healthier,
+          stronger, and more vibrant life. Our passion for fitness and
+          unwavering commitment to your well-being drive everything we do.
+          <br />
+          Our mission is simple yet profound: to empower you to surpass your
+          fitness goals. We believe that a healthy body and an active lifestyle
+          are the foundations of a fulfilling life. That's why we're dedicated
+          to providing you with top-quality gym and fitness equipment that
+          supports your unique fitness journey. <br />
+          When you choose Surpass Fitness, you become part of a vibrant and
+          supportive fitness community. Connect with us on social media, share
+          your progress, and inspire others to reach their fitness goals.
+          Together, we can achieve greatness. Thank you for considering Surpass
+          Fitness as your fitness equipment partner. We look forward to helping
+          you surpass your fitness potential and live your healthiest, happiest
+          life. Welcome to the Surpass Fitness family!
+        </p>
       </div>
     </section>
     <section id="WhyChooseUs" class="choose mt-5 mb-5">
@@ -38,43 +31,50 @@
       <div class="container mt-5 mb-3">
         <div class="row row-cols-1 row-cols-lg-3">
           <div class="col colChoice g-4">
-            <div class="card cardChoice" style="width: 18rem">
+            <div class="card cardChoice">
               <h2 class="card-title headgingChoice p-4">
                 <i class="bi bi-bicycle"></i> Delivery
               </h2>
               <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
                 <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Your fitness equipment is an investment in your health, and we
+                  treat it as such. Our delivery professionals are trained to
+                  handle your items with care, ensuring that they arrive at your
+                  doorstep in perfect condition. Whether it's a treadmill,
+                  dumbbells, or yoga mats, your equipment is in safe hands.
                 </p>
               </div>
             </div>
           </div>
           <div class="col colChoice g-4">
-            <div class="card cardChoice" style="width: 18rem">
+            <div class="card cardChoice">
               <h2 class="card-title headgingChoice p-4">
                 <i class="bi bi-emoji-smile"></i> Commitment
               </h2>
               <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
                 <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Your satisfaction and success are our priorities. We're
+                  committed to providing exceptional customer service, reliable
+                  products, and competitive pricing. Your feedback fuels our
+                  continuous improvement, and we're always ready to go the extra
+                  mile to exceed your expectations
                 </p>
               </div>
             </div>
           </div>
           <div class="col colChoice g-4">
-            <div class="card cardChoice" style="width: 18rem">
+            <div class="card cardChoice">
               <h2 class="card-title headgingChoice p-4">
-                <i class="bi bi-credit-card"></i> Cash-Back
+                <i class="bi bi-credit-card"></i> Warranty
               </h2>
               <div class="card-body mb-5">
-                <h6 class="card-subtitle mb-2 textChoice">Card subtitle</h6>
                 <p class="card-text textChoice">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Our team at Surpass Fitness Warranty is dedicated to assisting
+                  you throughout your warranty period. If you encounter any
+                  issues with your equipment, our experts are just a call or
+                  message away. We're here to ensure your equipment is up and
+                  running, so you can continue your fitness journey without
+                  interruptions.
                 </p>
               </div>
             </div>
@@ -91,18 +91,22 @@
           <div class="row g-0">
             <div class="col-md-4">
               <img
-                src="https://i.postimg.cc/hPCbBYcr/danielle-cerullo-CQf-Nt66tt-ZM-unsplash.jpg"
+                src="https://i.postimg.cc/0NYJhdSq/rayhaanKhanAbout1.png"
                 class="img-fluid rounded-start"
                 alt="..."
               />
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Rayhaan Khan</h5>
                 <p class="card-text d-flex justify-content-center">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  Rayhaan Khan - Founder & CEO <br>
+                  Rayhaan Khan is the heartbeat of
+                  Surpass Fitness. As the Founder and CEO, he embodies the
+                  passion and dedication that drive our company's success. With
+                  a background deeply rooted in a relentless commitment to innovation, Rayhaan Surpass
+                  Fitness to revolutionize the fitness equipment industry. <br>
+                  Under Rayhaan's leadership, Surpass Fitness prioritizes excellence in product quality, customer satisfaction, and overall fitness education. He ensures that our products align with the highest standards of durability, functionality, and innovation, making them essential tools for anyone on a fitness journey.
                 </p>
               </div>
             </div>
@@ -126,7 +130,7 @@
                 aria-expanded="false"
                 aria-controls="flush-collapseOne"
               >
-                Accordion Item #1
+                What is your return policy?
               </button>
             </h2>
             <div
@@ -135,9 +139,8 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                first item's accordion body.
+                We have a hassle-free return policy. If you're not satisfied
+                with your purchase, you can return it within 7days of receipt.
               </div>
             </div>
           </div>
@@ -151,7 +154,7 @@
                 aria-expanded="false"
                 aria-controls="flush-collapseTwo"
               >
-                Accordion Item #2
+                Do you offer warranty coverage for your products?
               </button>
             </h2>
             <div
@@ -160,10 +163,8 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                second item's accordion body. Let's imagine this being filled
-                with some actual content.
+                Yes, we provide warranty coverage for many of our products. Each
+                product's warranty lasts for 2 years.
               </div>
             </div>
           </div>
@@ -177,7 +178,7 @@
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
               >
-                Accordion Item #3
+                How long does delivery take?
               </button>
             </h2>
             <div
@@ -186,12 +187,9 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                third item's accordion body. Nothing more exciting happening
-                here in terms of content, but just filling up the space to make
-                it look, at least at first glance, a bit more representative of
-                how this would look in a real-world application.
+                Delivery times may vary depending on your location and the
+                product's availability. Typically, you can expect your order to
+                arrive within 7-10 business days.
               </div>
             </div>
           </div>
@@ -205,7 +203,7 @@
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
               >
-                Accordion Item #4
+                Do you offer installation services for your equipment?
               </button>
             </h2>
             <div
@@ -214,12 +212,9 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                third item's accordion body. Nothing more exciting happening
-                here in terms of content, but just filling up the space to make
-                it look, at least at first glance, a bit more representative of
-                how this would look in a real-world application.
+                Yes, we offer installation services for select products. Please
+                contact our customer support team to inquire about installation
+                availability in your area.
               </div>
             </div>
           </div>
@@ -233,7 +228,7 @@
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
               >
-                Accordion Item #5
+                How can I contact your customer support team?
               </button>
             </h2>
             <div
@@ -242,40 +237,9 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                third item's accordion body. Nothing more exciting happening
-                here in terms of content, but just filling up the space to make
-                it look, at least at first glance, a bit more representative of
-                how this would look in a real-world application.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseSix"
-                aria-expanded="false"
-                aria-controls="flush-collapseThree"
-              >
-                Accordion Item #6
-              </button>
-            </h2>
-            <div
-              id="flush-collapseSix"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionFlushExample"
-            >
-              <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                third item's accordion body. Nothing more exciting happening
-                here in terms of content, but just filling up the space to make
-                it look, at least at first glance, a bit more representative of
-                how this would look in a real-world application.
+                You can reach our customer support team through our Contact Us
+                page on our website. We're here to assist you with any questions
+                or concerns.
               </div>
             </div>
           </div>
@@ -291,16 +255,21 @@ export default {};
 
 <style scoped>
 .aboutUs {
-  height: 70vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
 }
 
 .aboutContain {
-  height: 100%;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.aboutText {
+  font-size: 1.1rem;
 }
 
 .card {
@@ -313,7 +282,7 @@ export default {};
 
 .cardChoice {
   background-color: #79031d;
-  height: 19rem;
+  height: 21rem;
   width: 21rem !important;
 }
 
@@ -325,21 +294,16 @@ export default {};
 
 .headgingChoice {
   color: #edb518 !important;
-  border-bottom: 1px #edb518 !important;
-  font-size: 1.8rem;
 }
 .textChoice {
   color: #f5f7f7 !important;
+  font-size: 1rem;
 }
 
 .colChoice {
   display: flex;
   justify-content: center;
   align-content: center;
-}
-
-.team {
-  height: 70vh;
 }
 
 .faqs {
@@ -355,13 +319,21 @@ export default {};
   border-radius: 10px;
 }
 
+.accordion-body {
+  background-color: #79031d;
+  color: #f5f7f7;
+}
+
 @media (max-width: 768px) {
   .aboutUs {
-    height: 100vh;
+    height: max-content;
   }
-
-  .ourImage {
-    width: 33rem;
+  
+  .cardChoice {
+  height: max-content;
+}
+  .aboutContain {
+    height: max-content;
   }
 }
 </style>
