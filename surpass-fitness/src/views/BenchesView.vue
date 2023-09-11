@@ -16,37 +16,50 @@
             <div class="search">
               <h2>PRODUCT SEARCH</h2>
               <form class="d-flex" role="search">
-                <input
-                  class="form-control me-3"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
+              <input
+                class="form-control mx-auto search"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                v-model="searchQuery"
+              />
+            </form>
             </div>
             <div class="filter mt-lg-5 mb-lg-5">
-              <h2>SORT BY:</h2>
-              <div class="dropdown ms-3">
-                <button
-                  class="btn1 dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown button
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </div>
+            <h2>SORT BY:</h2>
+            <div class="dropdown ms-3">
+              <button
+                class="btn1 dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown button
+              </button>
+              <ul class="dropdown-menu text-center">
+                <li>
+                  <button class="btn2" @click="sortAlphabeticallyAsc()">
+                    Alphatically(A-Z)
+                  </button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAlphabeticallyDesc()">
+                    Alphatically(Z-A)
+                  </button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAmountAsc()">
+                    Price: Low to High
+                  </button>
+                </li>
+                <li>
+                  <button class="btn2" @click="sortAmountDesc()">
+                    Price: High to Low
+                  </button>
+                </li>
+              </ul>
             </div>
+          </div>
             <div class="category mt-2">
               <h2>CATEGORIES</h2>
               <div class="catList">
@@ -70,7 +83,7 @@
           </div>
           <div class="right d-flex justify-content-center ms-lg-4">
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-              <div class="col p-3 p-lg-5" v-for="product in products" :key="product.prodID">
+              <div class="col p-3 p-lg-5" v-for="product in filteredProducts" :key="product.prodID">
                 <router-link 
                 :to="{
                     name: 'single',
@@ -101,10 +114,80 @@
   
   <script>
   export default {
+    data() {
+    return {
+      searchQuery: "",
+    };
+  },
       computed: {
-      products() {
-        return this.$store.state.products;
+        products() {
+      return this.$store.state.products || [];
       },
+      filteredProducts() {
+      if (!this.products) {
+        return [];
+      }
+      return this.products.filter((product) => {
+        const prodTitle = product?.prodTitle?.toLowerCase();
+        const category = product?.Category?.toLowerCase();
+        return (
+          (prodTitle && prodTitle.includes(this.searchQuery.toLowerCase())) ||
+          (category && category.includes(this.searchQuery.toLowerCase()))
+        );
+      });
+    },
+  },
+  methods: {
+    sortAlphabeticallyAsc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+
+        if (prodTitleA < prodTitleB) {
+          return this.inAsc ? -1 : 1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAlphabeticallyDesc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+        if (prodTitleA > prodTitleB) {
+          return this.inAsc ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAmountAsc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodAmountA = a.prodPrice;
+        const prodAmountB = b.prodPrice;
+
+        if (prodAmountA < prodAmountB) {
+          return this.inAsc ? -1 : 1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAmountDesc() {
+      this.inAsc = !this.inAsc;
+      this.products.sort((a, b) => {
+        const prodAmountA = a.prodPrice;
+        const prodAmountB = b.prodPrice;
+        if (prodAmountA > prodAmountB) {
+          return this.inAsc ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    },
     },
     mounted() {
       this.$store.dispatch("fetchBenches");
@@ -146,18 +229,22 @@
   }
   
   .btn1 {
-    width: 10rem;
-    background-color: #edb518;
-    color: #79031d;
-    padding: 0.5rem;
-    border-radius: 20px;
-    border: none;
-  }
+  width: 12rem;
+  background-color: #edb518;
+  color: #79031d;
+  padding: 0.5rem;
+  /* border-radius: 20px; */
+  border: none;
+}
   
   .card {
     height: 21rem;
     width: 17rem;
   }
+
+  .dropdown-menu {
+  width: 12rem;
+}
   
   .image {
     display: flex;

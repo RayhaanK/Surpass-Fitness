@@ -82,7 +82,10 @@
           </div>
         </div>
         <div class="right d-flex justify-content-center ms-lg-4 mt-3">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex justify-content-center">
+          <div
+            class="row row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex justify-content-center"
+            v-if="products"
+          >
             <div
               class="col p-2 p-lg-4"
               v-for="product in filteredProducts"
@@ -111,6 +114,9 @@
               >
             </div>
           </div>
+          <div v-else class="row">
+            <spinner />
+          </div>
         </div>
       </div>
     </section>
@@ -118,11 +124,15 @@
 </template>
 
 <script>
+import Spinner from "@/components/SpinnerComp.vue";
 export default {
   data() {
     return {
       searchQuery: "",
     };
+  },
+  components: {
+    Spinner,
   },
   computed: {
     products() {
@@ -247,16 +257,6 @@ img {
   color: #79031d;
   padding: 0.5rem;
   /* border-radius: 20px; */
-  border: none;
-}
-
-.btn2 {
-  width: 9rem;
-  background-color: #edb518;
-  color: #79031d;
-  padding: 0.2rem;
-  outline: 1px solid #79031d;
-  margin-top: 0.2rem;
   border: none;
 }
 

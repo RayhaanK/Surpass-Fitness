@@ -231,9 +231,9 @@
                   Found about more about the comapny and team and frequently
                   asked questions!
                 </p>
-                <a href="#" class="card-link"
-                  ><button class="btn1">More</button></a
-                >
+                <router-link to="/about"
+                ><button class="btn1">About Us</button></router-link
+              >
               </div>
             </div>
             <div class="card tipC cardContact">
@@ -243,9 +243,9 @@
                 <p class="card-text white">
                   Feel free to send us a message on the contact form
                 </p>
-                <a href="#" class="card-link"
-                  ><button class="btn1">More</button></a
-                >
+                <router-link to="/contact"
+                ><button class="btn1">Contact Us</button></router-link
+              >
               </div>
             </div>
             <div class="card tipC cardLife">
