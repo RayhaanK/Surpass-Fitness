@@ -44,10 +44,10 @@
 }
 
 .btn2 {
-  width: 9rem;
+  width: 100%;
   background-color: #edb518;
   color: #79031d;
-  padding: 0.2rem;
+  padding: 0.3rem;
   outline: 1px solid #79031d;
   margin-top: 0.2rem;
   border: none;
