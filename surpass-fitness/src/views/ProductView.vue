@@ -38,22 +38,22 @@
               </button>
               <ul class="dropdown-menu text-center">
                 <li>
-                  <button class="btn2" @click="sortAlphabeticallyAsc()">
+                  <button class="btn2" @click.prevent="sortAlphabeticallyAsc()">
                     Alphatically(A-Z)
                   </button>
                 </li>
                 <li>
-                  <button class="btn2" @click="sortAlphabeticallyDesc()">
+                  <button class="btn2" @click.prevent="sortAlphabeticallyDesc()">
                     Alphatically(Z-A)
                   </button>
                 </li>
                 <li>
-                  <button class="btn2" @click="sortAmountAsc()">
+                  <button class="btn2" @click.prevent="sortAmountAsc()">
                     Price: Low to High
                   </button>
                 </li>
                 <li>
-                  <button class="btn2" @click="sortAmountDesc()">
+                  <button class="btn2" @click.prevent="sortAmountDesc()">
                     Price: High to Low
                   </button>
                 </li>
