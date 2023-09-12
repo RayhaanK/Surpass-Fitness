@@ -72,7 +72,7 @@
       </h1>
       <div class="container-fluid">
         <button class="btn3 float-start" id="sort">Sort By ID(asc/desc)</button>
-        <userAdd/>
+        <AddUser/>
       </div>
       <table
         class="table table-responsive table-bordered border-black table-hover" v-if="users"
@@ -137,9 +137,10 @@ import AddButton from "@/components/AddProductComp.vue"
 import EditButton from "@/components/EditProductComp.vue"
 import Spinner from "@/components/SpinnerComp.vue"
 import EditUser from "@/components/EditUserComp.vue"
+import AddUser from "@/components/AddUserComp.vue"
 export default {
     components: {
-        AddButton, EditButton, Spinner, EditUser
+        AddButton, EditButton, Spinner, EditUser, AddUser
   },
   computed: {
     products() {
