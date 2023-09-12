@@ -134,8 +134,8 @@ export default createStore({
           payload
         );
         if (data) {
-          context.commit("editUser", data.results);
-          context.dispatch("fetchUsers");
+          context.commit("setUser", data.results);
+          context.dispatch("fetchUser");
         } else {
           context.commit("setMsg", "An error has occured");
         }
@@ -143,6 +143,23 @@ export default createStore({
         context.commit("setMsg", "An error has occured");
       }
     },
+    // async editProduct(context, payload) {
+    //   try {
+    //     const response = await axios.patch(
+    //       `${dataUrl}product/${payload.prodID}`,
+    //       payload
+    //     );
+    //     if (response) {
+    //       context.commit("editProduct", response);
+    //       context.dispatch("fetchProducts");
+    //     } else {
+    //       context.commit("setMsg", "An error has occured");
+    //     }
+    //   } catch (e) {
+    //     context.commit("setMsg", "An error has occured");
+    //   }
+    // },
+    
     // Product
     async fetchProducts(context) {
       try {
