@@ -1,67 +1,129 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue' 
+import { useCookies } from "vue3-cookies"
+const { cookies } = useCookies()
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import( '../views/AboutView.vue')
+    component: () => import( '../views/AboutView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/product',
     name: 'product',
-    component: () => import( '../views/ProductView.vue')
+    component: () => import( '../views/ProductView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import( '../views/ContactView.vue')
+    component: () => import( '../views/ContactView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/single/:prodID',
     name: 'single',
     props: true,
-    component: () => import('../views/SingleView.vue')
+    component: () => import('../views/SingleView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/treadmill',
     name: 'treadmill',
-    component: () => import('../views/TreadmillView.vue')
+    component: () => import('../views/TreadmillView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/exercisebikes',
     name: 'exercisebikes',
-    component: () => import('../views/ExerciseBikesView.vue')
+    component: () => import('../views/ExerciseBikesView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/benches',
     name: 'benches',
-    component: () => import('../views/BenchesView.vue')
+    component: () => import('../views/BenchesView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/yogamats',
     name: 'yogamats',
-    component: () => import('../views/YogaMatsView.vue')
+    component: () => import('../views/YogaMatsView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/weights',
     name: 'weights',
-    component: () => import('../views/WeightsView.vue')
+    component: () => import('../views/WeightsView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/dumbbells',
     name: 'dumbbells',
-    component: () => import('../views/DumbbellsView.vue')
+    component: () => import('../views/DumbbellsView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/AdminView.vue')
+    component: () => import('../views/AdminView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },
   {
     path: '/register',
@@ -72,6 +134,16 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import('../views/LoginView.vue')
+  },  
+  {
+    path: '/user',
+    name: 'useProfile',
+    component: () => import('../views/UserProfileView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
   },  
 ]
 
