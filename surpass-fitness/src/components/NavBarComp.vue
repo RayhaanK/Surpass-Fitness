@@ -103,7 +103,7 @@
             ></router-link>
           </li>
           <li class="nav-item">
-            <router-link to="#" class="nav-link"
+            <router-link to="/user" class="nav-link"
               ><i class="bi bi-person-circle"></i
             ></router-link>
           </li>
