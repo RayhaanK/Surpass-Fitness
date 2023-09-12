@@ -67,7 +67,7 @@
                   Close
                 </button>
                 <button
-                  @click="updateProduct(product.prodID)"
+                  @click.prevent="updateProduct(product.prodID)"
                   type="submit"
                   class="btn1"
                   id="addProduct"

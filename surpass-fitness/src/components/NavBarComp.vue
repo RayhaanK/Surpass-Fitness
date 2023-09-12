@@ -98,7 +98,7 @@
             <router-link to="/contact" class="nav-link">Contact Us</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="#" class="nav-link"
+            <router-link to="/checkout" class="nav-link"
               ><i class="bi bi-cart4"></i
             ></router-link>
           </li>

@@ -137,7 +137,17 @@ const routes = [
   },  
   {
     path: '/user',
-    name: 'useProfile',
+    name: 'userProfile',
+    component: () => import('../views/UserProfileView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
+  },  
+  {
+    path: '/checkout',
+    name: 'checkout',
     component: () => import('../views/UserProfileView.vue'),
     beforeEnter() {
       if (!cookies.get("LegitUser")) {
