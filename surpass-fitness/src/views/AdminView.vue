@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <h1 class="text-center mb-2 p-4">Admin Interface</h1>
         <div class="container-fluid">
-          <button class="btn2 float-start" id="sort">
+          <button class="btn3 float-start" id="sort">
             Sort By ID(asc/desc)
           </button>
           <AddButton />
@@ -71,7 +71,7 @@
         User Interface
       </h1>
       <div class="container-fluid">
-        <button class="btn2 float-start" id="sort">Sort By ID(asc/desc)</button>
+        <button class="btn3 float-start" id="sort">Sort By ID(asc/desc)</button>
         <userAdd/>
       </div>
       <table
@@ -116,7 +116,7 @@
             </td>
             <td>
               <div class="tableRows">
-                <userEdit :user="user"/>
+                <EditUser :user="user"/>
                 <button @click.prevent="deleteUser(user.userID)" class="btn1" id="deleteBtn">Delete</button>
               </div>
             </td>
@@ -136,9 +136,10 @@
 import AddButton from "@/components/AddProductComp.vue"
 import EditButton from "@/components/EditProductComp.vue"
 import Spinner from "@/components/SpinnerComp.vue"
+import EditUser from "@/components/EditUserComp.vue"
 export default {
     components: {
-        AddButton, EditButton, Spinner
+        AddButton, EditButton, Spinner, EditUser
   },
   computed: {
     products() {
@@ -166,7 +167,7 @@ export default {
 <style scoped>
 
 .adm {
-  height: 1000vh;
+  height: max-content;
 }
 
 .tableRows {
