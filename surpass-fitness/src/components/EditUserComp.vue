@@ -3,7 +3,7 @@
       <button
         type="button"
         class="btn2 mb-3"
-        @click="editUserModal(user.userID)"
+        @click="editModal(user.userID)"
         data-bs-toggle="modal"
         :data-bs-target="'#uexampleModal' + user.userID"
       >
@@ -15,13 +15,13 @@
           class="modal fade"
           :id="'uexampleModal' + user.userID"
           tabindex="-1"
-          :aria-labelledby="'uexampleModalLabel' + user.userID"
+          :aria-labelledby="'pexampleModalLabel' + user.userID"
           aria-hidden="true"
         >
           <div class="modal-dialog">
             <div class="modal-content bg-dark-subtle">
               <div class="modal-header text-center">
-                <h1 class="modal-title fs-5" id="uexampleModalLabel">
+                <h1 class="modal-title fs-5" id="pexampleModalLabel">
                   Edit User
                 </h1>
                 <button
@@ -34,34 +34,47 @@
               <form>
                 <div class="modal-body">
                   <p class="title">First Name</p>
-                  <input type="text" id="title" v-model="editUser.firstName" />
+                  <input type="text" v-model="editUser.firstName" id="title" />
                   <p class="title">Last Name</p>
-                  <input type="text" v-model="editUser.lastName" id="lastName" />
-                  <p class="title">Age</p>
-                  <input type="text" id="details" v-model="editUser.userAge" />
+                  <input type="text" v-model="editUser.lastName" id="title" />
+                  <p class="title">Product Name</p>
+                  <input type="text" v-model="editUser.userAge" id="title" />
                   <p class="title">Gender</p>
-                  <input type="text" v-model="editUser.gender" id="gender" />
+                  <input
+                    type="text"
+                    v-model="editUser.gender"
+                    id="category"
+                  />
                   <p class="title">Email Address</p>
-                  <input type="text" id="email" v-model="editUser.userEmail" />
+                  <input type="text" v-model="editUser.userEmail" id="details" />
+                  <p class="title">Password</p>
+                  <input
+                    type="text"
+                    v-model="editUser.userPass"
+                    id="description"
+                  />
                   <p class="title">Profile Image</p>
                   <input
                     type="text"
                     v-model="editUser.userImage"
-                    id="imageLink"
+                    id="amount"
                   />
                   <p class="title">User Role</p>
-                  <input type="text" v-model="editUser.userRole" id="imageLink" />
+                  <input
+                    type="text"
+                    v-model="editUser.userRole"
+                    id="imageLink"
+                  />
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn1" data-bs-dismiss="modal">
                     Close
                   </button>
                   <button
-                    @click.prevent="updateUser()"
+                    @click.prevent="updateProduct(user.userID)"
                     type="submit"
                     class="btn1"
-                    id="addUser"
-                    data-bs-dismiss="modal"
+                    id="addProduct"
                   >
                     Save changes
                   </button>
@@ -83,27 +96,29 @@
           ...this.user,
         },
         editUserID: null,
-        editUserInfo: {
-          userID: "",
+        userEdit: {
           firstName: "",
-            lastName: "",
-            userAge: "",
-            gender: "",
-            userRole: "",
-            userEmail: "",
-            userRole: "",
-            userImage: "",
+          lastName: "",
+          userAge: "",
+          gender: "",
+          userEmail: "",
+          userPass: "",
+          userImage: "",
+          userRole: "",
         },
       };
     },
+    computed: {},
     methods: {
-      editUserModal(userID) {
+      editModal(userID) {
         this.editUserID = userID;
         this.editUser = {
-          ...this.$store.state.users.find((user) => user.userID === userID),
+          ...this.$store.state.users.find(
+            (user) => user.userID === userID
+          ),
         };
       },
-      updateUser(userID) {
+      updateProduct(userID) {
         this.$store.dispatch("editUser", {
           userID: userID,
           ...this.editUser,
@@ -114,30 +129,6 @@
   </script>
   
   <style scoped>
-  .btn1 {
-    background-color: #f7f7f7;
-    padding: 0.3rem;
-    border-radius: 10px;
-    width: 9rem;
-    border: none;
-  }
-  
-  .btn1:hover {
-    background-color: #f7f7f788;
-  }
-  
-  .btn2 {
-    background-color: #f7f7f7;
-    width: 4rem;
-    padding: 0.3rem;
-    border-radius: 10px;
-    border: none;
-  }
-  
-  .btn2:hover {
-    background-color: #f7f7f7d3;
-  }
-  
   input {
     width: 100%;
   }
