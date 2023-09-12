@@ -118,10 +118,20 @@ export default createStore({
       try {
         const {data} = await axios.delete(`${dataUrl}user/${userID}`);
         if (data) {
-          context.commit("setUsers", data.results);
-          context.dispatch("fetchUsers")
+          sweet({
+            title: "User has been deleted",
+            text: msg,
+            icon: "success",
+            timer: 3000,
+          });
+          context.dispatch("fetchUsers");
         } else {
-          context.commit("setMsg", "An error has occured");
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 3000,
+          });
         }
       } catch (e) {
         context.commit("setMsg", "An error has occured");
@@ -134,31 +144,48 @@ export default createStore({
           payload
         );
         if (data) {
-          context.commit("setUser", data.results);
-          context.dispatch("fetchUser");
+          sweet({
+            title: "User has been edited",
+            text: msg,
+            icon: "success",
+            timer: 3000,
+          });
+          context.dispatch("fetchUsers");
         } else {
-          context.commit("setMsg", "An error has occured");
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 3000,
+          });
         }
       } catch (e) {
         context.commit("setMsg", "An error has occured");
       }
     },
-    // async editProduct(context, payload) {
-    //   try {
-    //     const response = await axios.patch(
-    //       `${dataUrl}product/${payload.prodID}`,
-    //       payload
-    //     );
-    //     if (response) {
-    //       context.commit("editProduct", response);
-    //       context.dispatch("fetchProducts");
-    //     } else {
-    //       context.commit("setMsg", "An error has occured");
-    //     }
-    //   } catch (e) {
-    //     context.commit("setMsg", "An error has occured");
-    //   }
-    // },
+    async AddUser(context, payload) {
+      try {
+        const { msg } = (await axios.post(`${dataUrl}user`, payload)).data;
+        if (msg) {
+          sweet({
+            title: "User Added",
+            text: msg,
+            icon: "success",
+            timer: 3000,
+          });
+          context.dispatch("fetchUsers");
+        } else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 3000,
+          });
+        }
+      } catch (e) {
+        context.commit(console.log(e));
+      }
+    },
     
     // Product
     async fetchProducts(context) {

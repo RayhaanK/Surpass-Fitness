@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-end mb-2">
       <button
         type="button"
-        class="btn2 mb-3"
+        class="btn3 mb-3"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >

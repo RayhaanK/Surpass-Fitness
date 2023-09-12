@@ -57,7 +57,7 @@
                     Close
                   </button>
                   <button
-                    @click.prevent="updateUser(userID)"
+                    @click.prevent="updateUser()"
                     type="submit"
                     class="btn1"
                     id="addUser"
