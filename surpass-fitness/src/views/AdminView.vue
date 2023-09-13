@@ -3,10 +3,7 @@
     <section id="admin" class="adm">
       <div class="container-fluid">
         <h1 class="text-center mb-2 p-4">Admin Interface</h1>
-        <div class="container-fluid">
-          <button class="btn3 float-start" id="sort">
-            Sort By ID(asc/desc)
-          </button>
+        <div class="container-fluid"> 
           <AddButton />
         </div>
         <table
@@ -71,7 +68,6 @@
         User Interface
       </h1>
       <div class="container-fluid">
-        <button class="btn3 float-start" id="sort">Sort By ID(asc/desc)</button>
         <AddUser/>
       </div>
       <table
