@@ -5,6 +5,7 @@ import router from "@/router";
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
 import authenticateUser from "@/services/authenticateUser.js";
+const cartList = JSON.parse(localStorage.getItem('cart')) || []
 
 const dataUrl = "https://surpass-fitness.onrender.com/";
 
@@ -17,6 +18,7 @@ export default createStore({
     spinner: false,
     token: null,
     msg: null,
+    cart: cartList
   },
   getters: {},
   mutations: {
@@ -41,8 +43,11 @@ export default createStore({
     setMsg(state, msg) {
       state.msg = msg;
     },
-    setCart(state, payload) {
-      state.cart = payload;
+    addCart(state, product) {
+      state.cart.push(product);
+    },
+    removeCartItem(state, productIndex) {
+      state.cart.splice(productIndex, 1);
     },
   },
   actions: {
@@ -97,6 +102,7 @@ export default createStore({
         if (result) {
           context.commit("setUser", { result, msg });
           cookies.set("LegitUser", { msg, token, result });
+          localStorage.setItem("user", JSON.stringify(result))
           authenticateUser.applyToken(token);
           sweet({
             title: msg,
@@ -279,38 +285,14 @@ export default createStore({
     },
 
     // Cart
-    //  async AddtoCart(context) {
-    //     try {
-    //       const data = localStorage.getItem('prodID');
-    //       if (data) {
-    //         context.commit("AddtoCart", response);
-    //       } else {
-    //         context.commit("setMsg", "An error has occured");
-    //       }
-    //     } catch (e) {
-    //       context.commit("setMsg", "An error has occured");
-    //     }
-    //   },
-    //  async ViewCart(context) {
-    //     try {
-    //       const data = localStorage.getItem('prodID');
-    //       if (data) {
-    //         context.commit("AddtoCart", response);
-    //       } else {
-    //         context.commit("setMsg", "An error has occured");
-    //       }
-    //     } catch (e) {
-    //       context.commit("setMsg", "An error has occured");
-    //     }
-    //   },
-    //  async getCartItems (context, payload) {
-    //     try {
-    //         const data = await axios.get(`${dataUrl}/orders`)
-    //         context.commit("setProducts", data.results)
-    //       } catch (e) {
-    //         context.commit("setMsg", "An error occured");
-    //       }
-    //   },
+   async addToCart(context, product) {
+    context.commit('addCart', product)
+    localStorage.setItem('cart', JSON.stringify(context.state.cart))
+   },
+
+   async removeFromCart(context, productIndex) {
+    context.commit('removeCartItem', productIndex)
+   },
   },
   modules: {},
 });
