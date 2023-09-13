@@ -104,30 +104,9 @@ class Users {
           });
         });
       }
-
-    // Fetch One User
-  fetchUser(req, res) {
-    const id = req.params.id;
-    const query = `
-          SELECT userID, firstName, lastName, userAge, gender, userEmail, userRole, userPass, userImage
-          FROM Users
-          WHERE userID = ?
-          `;
-    db.query(query, [id], (err, result) => {
-      if (err) throw err;
-      res.json({
-        status: res.statusCode,
-        result,
-      });
-    });
-  }
-
     // Update User
   updateUser(req, res) {
     const data = req.body;
-    if (data.userPass) {
-      data.userPass = hasSync(data.userPass, 15);
-    }
     const query = `
             UPDATE Users
             SET ?
