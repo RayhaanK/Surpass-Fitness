@@ -158,7 +158,6 @@ export default {
       this.products.sort((a, b) => {
         const prodTitleA = a.prodTitle.toLowerCase();
         const prodTitleB = b.prodTitle.toLowerCase();
-
         if (prodTitleA < prodTitleB) {
           return this.inAsc ? -1 : 1;
         } else {

@@ -3,7 +3,7 @@
     <section id="admin" class="adm">
       <div class="container-fluid">
         <h1 class="text-center mb-2 p-4">Admin Interface</h1>
-        <div class="container-fluid"> 
+        <div class="container-fluid d-flex justify-content-end"> 
           <AddButton />
         </div>
         <table

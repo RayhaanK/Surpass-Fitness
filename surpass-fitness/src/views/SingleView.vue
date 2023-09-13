@@ -69,7 +69,7 @@ export default {
       localStorage.setItem("cart", JSON.stringify(this.cart));
     },
   },
-  },
+  }
 </script>
 
 <style scoped>
