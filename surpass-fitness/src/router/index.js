@@ -148,7 +148,7 @@ const routes = [
   {
     path: '/checkout',
     name: 'checkout',
-    component: () => import('../views/UserProfileView.vue'),
+    component: () => import('../views/CartView.vue'),
     beforeEnter() {
       if (!cookies.get("LegitUser")) {
         router.push({ name: "login" })

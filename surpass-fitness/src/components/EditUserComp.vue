@@ -47,12 +47,6 @@
                   />
                   <p class="title">Email Address</p>
                   <input type="text" v-model="editUser.userEmail" id="details" />
-                  <p class="title">Password</p>
-                  <input
-                    type="text"
-                    v-model="editUser.userPass"
-                    id="description"
-                  />
                   <p class="title">Profile Image</p>
                   <input
                     type="text"
@@ -102,13 +96,16 @@
           userAge: "",
           gender: "",
           userEmail: "",
-          userPass: "",
           userImage: "",
           userRole: "",
         },
       };
     },
-    computed: {},
+    computed: {
+      currentUser() {
+      return this.$store.state.user;
+    },
+    },
     methods: {
       editModal(userID) {
         this.editUserID = userID;
@@ -121,7 +118,7 @@
       updateProduct(userID) {
         this.$store.dispatch("editUser", {
           userID: userID,
-          ...this.editUser,
+          data: { ...this.editUser },
         });
       },
     },
