@@ -109,6 +109,9 @@
                       <h5 class="card-title">{{ product.prodTitle }}</h5>
                       <p class="card-text">R{{ product.prodPrice }}</p>
                     </div>
+                    <div class="button p-3">
+                      <button class="btnC" @click.prevent="addToCart(product)">Add to cart</button>
+                    </div>
                   </div>
                 </button></router-link
               >
@@ -202,10 +205,15 @@ export default {
         }
       });
     },
+    addToCart(product) {
+      this.$store.dispatch('addToCart', product)
+      console.log("pressed");
+    }
   },
   mounted() {
     this.$store.dispatch("fetchProducts");
   },
+
 };
 </script>
 
@@ -250,6 +258,10 @@ img {
   width: 12rem;
 }
 
+.card-title {
+  height: 50px !important;
+}
+
 .btn1 {
   width: 12rem;
   background-color: #edb518;
@@ -260,8 +272,13 @@ img {
 }
 
 .card {
-  height: 21rem;
-  width: 17rem;
+  height: 26rem;
+  width: 18rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: ease-out 0.2s;
 }
 
 .image {

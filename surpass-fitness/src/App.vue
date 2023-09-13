@@ -40,6 +40,13 @@ import Footer from "@/components/FooterComp.vue"
 export default {
   components: {
     Navbar, Footer
+  },
+  created() {
+    const data = JSON.parse(localStorage.getItem("user"))
+    if (data) {
+      this.$store.commit("setUser", data)
+    }
   }
 }
+
 </script>

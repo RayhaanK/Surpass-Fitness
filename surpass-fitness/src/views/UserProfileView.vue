@@ -2,7 +2,8 @@
   <div>
     <div class="container-fluid d-flex justify-content-center">
       <div class="row">
-        <div class="col" :user="user" :key="user.userID">
+        <div class="col">
+          Welcome Back {{ user.firstName }} {{ user.lastName }}
           <div class="card" >
             <div class="image">
               <img
@@ -31,11 +32,11 @@
 </template>
 
 <script>
-import router from "@/router";
-import { useCookies } from "vue3-cookies";
-const { cookies } = useCookies();
 import UserEdit from "@/components/userProfileEdit.vue"
 export default {
+  user() {
+    return this.$store.state.user;
+  },
   components: {
     UserEdit
   },
@@ -47,6 +48,15 @@ export default {
   methods: {
     logout() {
       cookies.remove("LegitUser");
+      try {
+        const data = JSON.parse(localStorage.getItem("user"))
+        if (data) {
+          localStorage.removeItem("user")
+        }
+      }
+      catch (error) {
+        console.error("Error Warning:", error);
+      }
       router.push({ name: "login" });
     },
   },
