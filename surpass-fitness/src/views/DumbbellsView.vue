@@ -150,55 +150,45 @@ export default {
   },
   methods: {
     sortAlphabeticallyAsc() {
-      this.inAsc = !this.inAsc;
-      this.products.sort((a, b) => {
-        const prodTitleA = a.prodTitle.toLowerCase();
-        const prodTitleB = b.prodTitle.toLowerCase();
-
-        if (prodTitleA < prodTitleB) {
-          return this.inAsc ? -1 : 1;
-        } else {
-          return 0;
-        }
-      });
-    },
-    sortAlphabeticallyDesc() {
-      this.inAsc = !this.inAsc;
-      this.products.sort((a, b) => {
-        const prodTitleA = a.prodTitle.toLowerCase();
-        const prodTitleB = b.prodTitle.toLowerCase();
-        if (prodTitleA > prodTitleB) {
-          return this.inAsc ? 1 : -1;
-        } else {
-          return 0;
-        }
-      });
-    },
-    sortAmountAsc() {
-      this.inAsc = !this.inAsc;
-      this.products.sort((a, b) => {
-        const prodAmountA = a.prodPrice;
-        const prodAmountB = b.prodPrice;
-
-        if (prodAmountA < prodAmountB) {
-          return this.inAsc ? -1 : 1;
-        } else {
-          return 0;
-        }
-      });
-    },
-    sortAmountDesc() {
-      this.inAsc = !this.inAsc;
-      this.products.sort((a, b) => {
-        const prodAmountA = a.prodPrice;
-        const prodAmountB = b.prodPrice;
-        if (prodAmountA > prodAmountB) {
-          return this.inAsc ? 1 : -1;
-        } else {
-          return 0;
-        }
-      });
-    },
+    this.inAsc = true;
+    this.inDesc = false;
+    this.products.sort((a, b) => {
+      const prodTitleA = a.prodTitle.toLowerCase();
+      const prodTitleB = b.prodTitle.toLowerCase();
+      if (prodTitleA < prodTitleB) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  },
+  sortAlphabeticallyDesc() {
+    this.inAsc = false;
+    this.inDesc = true;
+    this.products.sort((a, b) => {
+      const prodTitleA = a.prodTitle.toLowerCase();
+      const prodTitleB = b.prodTitle.toLowerCase();
+      if (prodTitleA > prodTitleB) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  },
+  sortAmountAsc() {
+    this.inAsc = true;
+    this.inDesc = false;
+    this.products.sort((a, b) => {
+      return a.prodPrice - b.prodPrice;
+    });
+  },
+  sortAmountDesc() {
+    this.inAsc = false;
+    this.inDesc = true;
+    this.products.sort((a, b) => {
+      return b.prodPrice - a.prodPrice;
+    });
+  },
     addToCart(product) {
       this.$store.dispatch("addToCart", product);
       console.log("pressed");
