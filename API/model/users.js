@@ -8,7 +8,7 @@ class Users {
   async register(req, res) {
     const data = req.body;
     // Encrypt password
-    data.userPass = await hash(data.userPass, 15);
+    data.userPass = await hash(data.userPass, 10);
     // Payload
     const user = {
       userEmail: data.userEmail,
