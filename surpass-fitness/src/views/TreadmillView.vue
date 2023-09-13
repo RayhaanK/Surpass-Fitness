@@ -63,7 +63,7 @@
           <div class="category mt-2">
             <h2>CATEGORIES</h2>
             <div class="catList">
-                <router-link class="catLink" to="/product">Products</router-link>
+              <router-link class="catLink" to="/product">Products</router-link>
               <router-link class="catLink" to="/treadmill"
                 >Treadmills</router-link
               >
@@ -83,27 +83,38 @@
         </div>
         <div class="right d-flex justify-content-center ms-lg-4">
           <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div class="col p-3 p-lg-5" v-for="product in filteredProducts" :key="product.prodID">
-              <router-link 
-              :to="{
+            <div
+              class="col p-3 p-lg-5"
+              v-for="product in filteredProducts"
+              :key="product.prodID"
+            >
+              <router-link
+                :to="{
                   name: 'single',
-                  params: { prodID: product.prodID }
-                  }"
-               ><button class="rbtn mt-2 mb-5">
-              <div class="card">
-                <div class="image">
-                  <img
-                    :src="product.prodImage"
-                    class="card-img-top prodImg"
-                    :alt="product.prodTitle"
-                  />
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">{{ product.prodTitle }}</h5>
-                  <p class="card-text">R{{ product.prodPrice }}</p>
-                </div>
-              </div>
-            </button></router-link>
+                  params: { prodID: product.prodID },
+                }"
+                ><button class="rbtn mt-2 mb-5">
+                  <div class="card">
+                    <div class="image">
+                      <img
+                        :src="product.prodImage"
+                        class="card-img-top prodImg"
+                        :alt="product.prodTitle"
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{ product.prodTitle }}</h5>
+                      <p class="card-text">R{{ product.prodPrice }}</p>
+                    </div>
+                    <div class="button p-3">
+                      <button class="btnC" @click.prevent="addToCart(product)">
+                        <i class="bi bi-basket-fill"></i>
+                      </button>
+                      <div class="hoverText">Add to Cart</div>
+                    </div>
+                  </div>
+                </button></router-link
+              >
             </div>
           </div>
         </div>
@@ -119,8 +130,8 @@ export default {
       searchQuery: "",
     };
   },
-    computed: {
-      products() {
+  computed: {
+    products() {
       return this.$store.state.products || [];
     },
     filteredProducts() {
@@ -188,6 +199,10 @@ export default {
         }
       });
     },
+    addToCart(product) {
+      this.$store.dispatch("addToCart", product);
+      console.log("pressed");
+    },
   },
   mounted() {
     this.$store.dispatch("fetchTreadmills");
@@ -236,10 +251,14 @@ img {
   /* border-radius: 20px; */
   border: none;
 }
-
 .card {
-  height: 21rem;
-  width: 17rem;
+  height: 26rem;
+  width: 18rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: ease-out 0.2s;
 }
 
 .image {
@@ -257,6 +276,33 @@ img {
 .card-img-top {
   height: 15rem;
   object-fit: contain;
+}
+
+.btnC {
+  background-color: transparent;
+  border: none;
+}
+
+.btnC:hover {
+  transform: scale(1.2);
+  transition: ease-out 0.2s;
+  color: #79031d;
+}
+
+.hoverText {
+  padding: 5px;
+  position: relative;
+  left: 75px;
+  top: 5px;
+  background: #bebebe;
+  width: 100px;
+  height: 15px;
+  color: black;
+  display: none;
+}
+
+.btnC:hover .hoverText {
+  display: block; /* <----- shows text on hover   */
 }
 
 @media (max-width: 1000px) {

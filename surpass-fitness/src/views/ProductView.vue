@@ -43,7 +43,10 @@
                   </button>
                 </li>
                 <li>
-                  <button class="btn2" @click.prevent="sortAlphabeticallyDesc()">
+                  <button
+                    class="btn2"
+                    @click.prevent="sortAlphabeticallyDesc()"
+                  >
                     Alphatically(Z-A)
                   </button>
                 </li>
@@ -110,7 +113,10 @@
                       <p class="card-text">R{{ product.prodPrice }}</p>
                     </div>
                     <div class="button p-3">
-                      <button class="btnC" @click.prevent="addToCart(product)">Add to cart</button>
+                      <button class="btnC" @click.prevent="addToCart(product)">
+                        <i class="bi bi-basket-fill fa-2x"></i>
+                      </button>
+                      <div class="hoverText">Add to Cart</div>
                     </div>
                   </div>
                 </button></router-link
@@ -206,14 +212,13 @@ export default {
       });
     },
     addToCart(product) {
-      this.$store.dispatch('addToCart', product)
+      this.$store.dispatch("addToCart", product);
       console.log("pressed");
-    }
+    },
   },
   mounted() {
     this.$store.dispatch("fetchProducts");
   },
-
 };
 </script>
 
@@ -295,6 +300,33 @@ img {
 .card-img-top {
   height: 15rem;
   object-fit: contain;
+}
+
+.btnC {
+  background-color: transparent;
+  border: none;
+}
+
+.btnC:hover {
+  transform: scale(1.2);
+  transition: ease-out 0.2s;
+  color: #79031d;
+}
+
+.hoverText {
+  padding: 5px;
+  position: relative;
+  left: 75px;
+  top: 5px;
+  background: #bebebe;
+  width: 100px;
+  height: 15px;
+  color: black;
+  display: none;
+}
+
+.btnC:hover .hoverText {
+  display: block; /* <----- shows text on hover   */
 }
 
 @media (max-width: 1000px) {
