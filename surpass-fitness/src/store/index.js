@@ -152,6 +152,22 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
+    async editUserProfile(context, payload) {
+      console.log(payload);
+      try {
+        const res = await axios.patch(`${dataUrl}user/${payload.userID}`, payload);
+        console.log(res)
+        const { msg, err } = res.data;
+        if (msg) {
+          // context.dispatch("fetchUsers");
+          context.commit("setUser", payload);
+        } else {
+          context.commit("setMsg", e);
+        }
+      } catch (e) {
+        context.commit("setMsg", "an error occured");
+      }
+    },
     async AddUser(context, payload) {
       try {
         const { msg } = (await axios.post(`${dataUrl}user`, payload)).data;
