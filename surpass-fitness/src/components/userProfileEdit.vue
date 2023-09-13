@@ -56,12 +56,6 @@
               placeholder="gender"
               v-model="editUser.gender"
             />
-            <label>user role:</label>
-            <input
-              type="text"
-              placeholder="role"
-              v-model="editUser.userRole"
-            />
             <label>email address:</label>
             <input
               type="text"
@@ -95,8 +89,9 @@
   </template>
   
   <script>
+import { useCookies } from "vue3-cookies";
+const { cookies } = useCookies();
   export default {
-    props: ["user"],
   data() {
     return {
       editUser: {
@@ -106,18 +101,26 @@
     };
   },
   computed: {
-    currentUser() {
-      return this.$store.state.user;
+    user() {
+      return this.$store.state.user || cookies.get("LegitUser").result;
     },
   },
   methods: {
     modalEdit(userID) {
-      console.log("reached");
+    const { cookies } = useCookies();
+    const loggedInUserID = cookies.get("LegitUser")?.result?.cookie;
+
+    if (loggedInUserID === userID) {
       this.editingUserID = userID;
       this.editUser = {
-        ...this.$store.state.users.find((user) => user.userID === userID),
+        ...this.$store.state.user || cookies.get("LegitUser").result.find((cookies) => cookies.get("LegitUser") === userID),
+        ...this.$store.dispatch("editUser")
       };
-    },
+    } else {
+      // Display an error message or handle unauthorized access here
+      console.error("Unauthorized access to edit profile.");
+    }
+  },
     updateUser(userID) {
       this.$store
         .dispatch("editUser", {

@@ -69,6 +69,7 @@
                 <button
                   @click.prevent="updateProduct(product.prodID)"
                   type="submit"
+                  data-bs-dismiss="modal"
                   class="btn1"
                   id="addProduct"
                 >

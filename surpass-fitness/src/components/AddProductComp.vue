@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="d-flex justify-content-center mb-2">
+    <div class="d-flex justify-content-end mb-2">
       <button
         type="button"
         class="btn3 mb-3"
