@@ -142,7 +142,7 @@ export default {
 
 <style scoped>
 .register {
-  height: 100vh;
+  height: 120vh;
 }
 
 h2,
@@ -159,7 +159,7 @@ label {
   align-items: center;
   width: 30%;
   background-color: #79031d;
-  height: 100vh;
+  height: 120vh;
 }
 
 .right {
