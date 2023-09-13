@@ -17,7 +17,6 @@ export default createStore({
     spinner: false,
     token: null,
     msg: null,
-    cart: []
   },
   getters: {},
   mutations: {
@@ -43,8 +42,8 @@ export default createStore({
       state.msg = msg;
     },
     setCart(state, payload) {
-      state.cart = payload
-    }
+      state.cart = payload;
+    },
   },
   actions: {
     // User
@@ -120,7 +119,7 @@ export default createStore({
     },
     async deleteUser(context, userID) {
       try {
-        const {data} = await axios.delete(`${dataUrl}user/${userID}`);
+        const { data } = await axios.delete(`${dataUrl}user/${userID}`);
         if (data) {
           context.commit("deleteProduct", response);
           context.dispatch("fetchProducts");
@@ -132,29 +131,18 @@ export default createStore({
       }
     },
     async editUser(context, payload) {
+      console.log(payload);
       try {
-        const {data} = await axios.patch(
-          `${dataUrl}user/${payload.userID}`,
-          payload
-        );
-        if (data) {
-          sweet({
-            title: "User has been edited",
-            text: msg,
-            icon: "success",
-            timer: 3000,
-          });
+        const res = await axios.patch(`${dataUrl}user/${payload.userID}`, payload.data);
+        const { msg, err } = res.data;
+        if (msg) {
           context.dispatch("fetchUsers");
+          context.commit("setUser", msg);
         } else {
-          sweet({
-            title: "Error",
-            text: msg,
-            icon: "error",
-            timer: 3000,
-          });
+          context.commit("setMsg", e);
         }
       } catch (e) {
-        context.commit("setMsg", "An error has occured");
+        context.commit("setMsg", "an error occured");
       }
     },
     async AddUser(context, payload) {
@@ -180,7 +168,7 @@ export default createStore({
         context.commit(console.log(e));
       }
     },
-    
+
     // Product
     async fetchProducts(context) {
       try {
@@ -291,69 +279,38 @@ export default createStore({
     },
 
     // Cart
-  //  async AddtoCart(context) {
-  //     try {
-  //       const data = localStorage.getItem('prodID');
-  //       if (data) {
-  //         context.commit("AddtoCart", response);
-  //       } else {
-  //         context.commit("setMsg", "An error has occured");
-  //       }
-  //     } catch (e) {
-  //       context.commit("setMsg", "An error has occured");
-  //     }
-  //   },
-  //  async ViewCart(context) {
-  //     try {
-  //       const data = localStorage.getItem('prodID');
-  //       if (data) {
-  //         context.commit("AddtoCart", response);
-  //       } else {
-  //         context.commit("setMsg", "An error has occured");
-  //       }
-  //     } catch (e) {
-  //       context.commit("setMsg", "An error has occured");
-  //     }
-  //   },
- async getCartItems (context, payload) {
-    try {
-        const data = await axios.get(`${dataUrl}/orders`)
-        context.commit("setProducts", data.results)
-      } catch (e) {
-        context.commit("setMsg", "An error occured");
-      }
-  },
-  // async editProduct(context, payload) {
-  //   try {
-  //     const response = await axios.patch(
-  //       `${dataUrl}product/${payload.prodID}`,
-  //       payload
-  //     );
-  //     if (response) {
-  //       context.commit("editProduct", response);
-  //       context.dispatch("fetchProducts");
-  //     } else {
-  //       context.commit("setMsg", "An error has occured");
-  //     }
-  //   } catch (e) {
-  //     context.commit("setMsg", "An error has occured");
-  //   }
-  addCartItem ({ commit }, cartItem) {
-    axios.post('/api/cart', cartItem).then((response) => {
-      commit('UPDATE_CART_ITEMS', response.data)
-    });
-  },
-  removeCartItem ({ commit }, cartItem) {
-    axios.delete('/api/cart/delete', cartItem).then((response) => {
-      commit('UPDATE_CART_ITEMS', response.data)
-    });
-  },
-  removeAllCartItems ({ commit }) {
-    axios.delete('/api/cart/delete/all').then((response) => {
-      commit('UPDATE_CART_ITEMS', response.data)
-    });
-  }
-
+    //  async AddtoCart(context) {
+    //     try {
+    //       const data = localStorage.getItem('prodID');
+    //       if (data) {
+    //         context.commit("AddtoCart", response);
+    //       } else {
+    //         context.commit("setMsg", "An error has occured");
+    //       }
+    //     } catch (e) {
+    //       context.commit("setMsg", "An error has occured");
+    //     }
+    //   },
+    //  async ViewCart(context) {
+    //     try {
+    //       const data = localStorage.getItem('prodID');
+    //       if (data) {
+    //         context.commit("AddtoCart", response);
+    //       } else {
+    //         context.commit("setMsg", "An error has occured");
+    //       }
+    //     } catch (e) {
+    //       context.commit("setMsg", "An error has occured");
+    //     }
+    //   },
+    //  async getCartItems (context, payload) {
+    //     try {
+    //         const data = await axios.get(`${dataUrl}/orders`)
+    //         context.commit("setProducts", data.results)
+    //       } catch (e) {
+    //         context.commit("setMsg", "An error occured");
+    //       }
+    //   },
   },
   modules: {},
 });
