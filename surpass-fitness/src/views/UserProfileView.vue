@@ -118,6 +118,8 @@
 </template>
 
 <script>
+import { useCookies } from "vue3-cookies";
+const { cookies } = useCookies();
 export default {
   data() {
     return {
@@ -147,7 +149,7 @@ export default {
       catch (error) {
         console.error("Error Warning:", error);
       }
-      router.push({ name: "login" });
+      this.$router.push({ name: "login" });
     },
     modalEdit(userID) {
       console.log("reached");
@@ -158,7 +160,7 @@ export default {
     },
     updateUser(userID) {
       this.$store
-        .dispatch("editUser", {
+        .dispatch("editUserProfile", {
           userID: userID, ...this.editUser ,
         })
         .then(() => {
