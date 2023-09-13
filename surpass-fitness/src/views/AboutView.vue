@@ -2,7 +2,7 @@
   <div>
     <section id="AboutUs" class="aboutUs">
       <div class="container-fluid aboutContain mt-md-4 mt-4">
-        <h2>OUR STORY</h2>
+        <h2 class="font">OUR STORY</h2>
         <p class="aboutText">
           At Surpass Fitness, we're more than just a fitness equipment retailer
           – we're your dedicated partner on your journey to a healthier,
@@ -26,7 +26,7 @@
     </section>
     <section id="WhyChooseUs" class="choose mt-5 mb-5">
       <div class="container mt-3">
-        <h2>WHY CHOOSE US</h2>
+        <h2 class="font">WHY CHOOSE US</h2>
       </div>
       <div class="container mt-5 mb-3">
         <div class="row row-cols-1 row-cols-lg-3">
@@ -84,7 +84,7 @@
     </section>
     <section id="Team" class="team mt-5">
       <div class="container mt-4">
-        <h2>MEET THE TEAM</h2>
+        <h2 class="font">MEET THE TEAM</h2>
       </div>
       <div class="container d-flex justify-content-center">
         <div class="card mb-3">
@@ -116,7 +116,7 @@
     </section>
     <section id="Faqs" class="faqs">
       <div class="container">
-        <h2>FAQS</h2>
+        <h2 class="font">FAQS</h2>
       </div>
       <div class="container-fluid">
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -254,6 +254,10 @@ export default {};
 </script>
 
 <style scoped>
+
+.font {
+  font-family: 'Broad Daylight', sans-serif;
+}
 .aboutUs {
   height: 60vh;
   display: flex;

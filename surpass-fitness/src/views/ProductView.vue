@@ -267,7 +267,6 @@ img {
   background-color: #edb518;
   color: #79031d;
   padding: 0.5rem;
-  /* border-radius: 20px; */
   border: none;
 }
 

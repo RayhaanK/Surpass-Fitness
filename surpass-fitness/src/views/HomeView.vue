@@ -40,9 +40,12 @@
                 />
                 <div class="container">
                   <div class="carousel-caption text-end">
-                    <h1 class="carouselHeading">WELCOME TO SURPASS FITNESS</h1>
+                    <h1 class="carouselHeading welcome">
+                      WELCOME TO SURPASS FITNESS
+                    </h1>
                     <p class="carouselText">
-                     We offer a wide range of fitness equipment, so that you can build your fantasy gym.
+                      We offer a wide range of fitness equipment, so that you
+                      can build your fantasy gym.
                     </p>
                     <p>
                       <router-link to="/about" class="dropdown-item"
@@ -54,14 +57,14 @@
               </div>
               <div class="carousel-item">
                 <img
-                  src="https://i.postimg.cc/tTS3f20b/chuttersnap-B0dx5ptuf50-unsplash.jpg"
+                  src="https://i.postimg.cc/JzsDQ6P1/chuttersnap-B0dx5ptuf50-unsplash.jpg"
                   class="d-block w-100 img-fluid cImg"
                   loading="lazy"
                   alt="Surpass Fitness"
                 />
                 <div class="container">
                   <div class="carousel-caption text-end">
-                    <h1 class="carouselHeading">Want to buy something?</h1>
+                    <h1 class="carouselHeading welcome">Want to buy something?</h1>
                     <p class="carouselText">Take a look at our catalogue!</p>
                     <p>
                       <router-link to="/product" class="dropdown-item"
@@ -82,15 +85,16 @@
                 />
                 <div class="container">
                   <div class="carousel-caption text-end">
-                    <h1 class="carouselHeading">Looking for something that we don't have?</h1>
+                    <h1 class="carouselHeading welcome">
+                      Looking for something that we don't have?
+                    </h1>
                     <p class="carouselText">
-                      Feel free to send us a message and we'll try our best to get it for you!
+                      Feel free to send us a message and we'll try our best to
+                      get it for you!
                     </p>
                     <p>
-                       <router-link to="/contact" class="dropdown-item"
-                        ><button class="btn1">
-                          Contact Us
-                        </button></router-link
+                      <router-link to="/contact" class="dropdown-item"
+                        ><button class="btn1">Contact Us</button></router-link
                       >
                     </p>
                   </div>
@@ -156,7 +160,9 @@
                       speed and incline settings.
                     </p>
                     <router-link to="/treadmill"
-                      ><button class="btn1">View Treadmills</button></router-link
+                      ><button class="btn1">
+                        View Treadmills
+                      </button></router-link
                     >
                   </div>
                 </div>
@@ -176,11 +182,14 @@
                   <div class="content">
                     <p class="heading">Dumbell</p>
                     <p>
-                      Sculpt and tone your muscles with ease, building the physique you desire. . Whether you're a beginner or a seasoned lifter, these dumbbells are your ticket to a stronger, healthier you.
+                      Sculpt and tone your muscles with ease, building the
+                      physique you desire. . Whether you're a beginner or a
+                      seasoned lifter, these dumbbells are your ticket to a
+                      stronger, healthier you.
                     </p>
                     <router-link to="/dumbbells"
-                ><button class="btn1">View Dumbbell</button></router-link
-              >
+                      ><button class="btn1">View Dumbbell</button></router-link
+                    >
                   </div>
                 </div>
               </div>
@@ -199,11 +208,14 @@
                   <div class="content">
                     <p class="heading">Yoga Mats</p>
                     <p>
-                      Experience comfort and stability as you flow through your poses, meditate, or stretch.  Invest in your well-being and embrace the serenity of yoga. <br> Namaste! 
+                      Experience comfort and stability as you flow through your
+                      poses, meditate, or stretch. Invest in your well-being and
+                      embrace the serenity of yoga. <br />
+                      Namaste!
                     </p>
                     <router-link to="/yogamats"
-                ><button class="btn1">View Yoga Mats</button></router-link
-              >
+                      ><button class="btn1">View Yoga Mats</button></router-link
+                    >
                   </div>
                 </div>
               </div>
@@ -232,8 +244,8 @@
                   asked questions!
                 </p>
                 <router-link to="/about"
-                ><button class="btn1">About Us</button></router-link
-              >
+                  ><button class="btn1">About Us</button></router-link
+                >
               </div>
             </div>
             <div class="card tipC cardContact">
@@ -244,8 +256,8 @@
                   Feel free to send us a message on the contact form
                 </p>
                 <router-link to="/contact"
-                ><button class="btn1">Contact Us</button></router-link
-              >
+                  ><button class="btn1">Contact Us</button></router-link
+                >
               </div>
             </div>
             <div class="card tipC cardLife">
@@ -317,8 +329,14 @@ export default {
   border: none;
 }
 
+.welcome {
+  font-family: "Broad Daylight", sans-serif;
+  font-size: 2.3rem;
+}
+
 h2 {
   color: #79031d;
+  font-family: "Broad Daylight", sans-serif;
   font-weight: 800;
 }
 
