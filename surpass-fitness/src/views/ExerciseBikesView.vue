@@ -191,7 +191,6 @@ export default {
   },
     addToCart(product) {
       this.$store.dispatch("addToCart", product);
-      console.log("pressed");
     },
   },
   mounted() {
@@ -259,6 +258,7 @@ img {
 
 .card-title {
   font-size: 1rem;
+  height: 50px !important;
 }
 
 .rbtn {
@@ -269,31 +269,35 @@ img {
   object-fit: contain;
 }
 
+.button {
+  width: fit-content;
+  margin: auto;
+}
+
 .btnC {
   background-color: transparent;
   border: none;
+  font-size: 1.5rem;
 }
 
 .btnC:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
   transition: ease-out 0.2s;
   color: #79031d;
 }
 
 .hoverText {
-  padding: 5px;
   position: relative;
   left: 75px;
-  top: 5px;
-  background: #bebebe;
+  bottom: 30px;
   width: 100px;
-  height: 15px;
   color: black;
   display: none;
 }
 
-.btnC:hover .hoverText {
-  display: block; /* <----- shows text on hover   */
+.button:hover .hoverText {
+  transition: ease-out 0.2s;
+  display: block; 
 }
 
 @media (max-width: 1000px) {

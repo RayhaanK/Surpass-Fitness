@@ -62,7 +62,7 @@
                   type="gender"
                   class="form-control"
                   id="gender"
-                  placeholder="email@gmail.com"
+                  placeholder="gender"
                   v-model="payload.gender"
                   required
                 />
