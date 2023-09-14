@@ -2,7 +2,7 @@
   <div>
     <section id="single" class="single">
       <div class="container-fluid d-flex justify-content-center mt-5">
-        <div class="container d-flex justify-content-center">
+        <div class="container d-flex justify-content-center" v-if="product">
           <div
             class="card mb-3"
             v-for="product in product"
@@ -30,17 +30,24 @@
                     <h4 class="card-title">R{{ product.prodPrice }}</h4>
                   </div>
                   <div class="products mb-2 mt-2">
+                    <div class="button p-3">
+                      <button class="btnC" @click.prevent="addToCart(product)">
+                        <i class="bi bi-basket-fill fa-2x"></i>
+                      </button>
+                    </div>
                     <router-link to="/product"
                       ><button class="rbtn">
                         Back to Products
                       </button></router-link
                     >
-                    <button @click="addToCart(product)">Add to Cart</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div v-else class="row">
+          <Spinner/>
         </div>
       </div>
     </section>
@@ -48,7 +55,11 @@
 </template>
 
 <script>
+import Spinner from "@/components/SpinnerComp.vue";
 export default {
+  components: {
+    Spinner
+  },
   props: ["prodID"],
   data() {
     return {
@@ -65,8 +76,7 @@ export default {
   },
   methods: {
     addToCart(product) {
-      this.cart.push(product);
-      localStorage.setItem("cart", JSON.stringify(this.cart));
+      this.$store.dispatch("addToCart", product);
     },
   },
   }
@@ -100,9 +110,47 @@ export default {
   background-color: #edb518;
   color: #79031d;
 }
+.rbtn:hover {
+  color: #edb518;
+  background-color: #79031d;
+}
 
 .image {
   display: flex;
   align-items: center;
+}
+
+.button {
+  width: fit-content;
+  margin: auto;
+}
+
+.btnC {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.btnC:hover {
+  transform: scale(1.4);
+  transition: ease-out 0.2s;
+  color: #79031d;
+}
+
+.hoverText {
+  position: relative;
+  left: 75px;
+  bottom: 30px;
+  width: 100px;
+  color: black;
+  display: none;
+}
+
+@media (max-width: 1000px) {
+
+  .single {
+    height: max-content;
+  }
+  
 }
 </style>

@@ -28,7 +28,7 @@
             >
             </li>
             <li class="nav-item mb-2">
-                <router-link to="#" class="nav-link"
+                <router-link to="/product" class="nav-link"
               >Products</router-link
             >
             </li>
@@ -60,7 +60,7 @@
                 <router-link to="#" class="dropdown-item">FAQS</router-link>
             </li>
             <li class="nav-item mb-2">
-                <router-link to="#" class="nav-link">Contact Us</router-link>
+                <router-link to="/contact" class="nav-link">Contact Us</router-link>
             </li>
           </ul>
         </div>

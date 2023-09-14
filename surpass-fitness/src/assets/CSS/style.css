@@ -54,3 +54,14 @@
   border: none;
 }
 
+.btnAction {
+  border: none;
+  width: 7rem;
+  padding: 0.2rem;
+  background-color: #79031d;
+  color: #edb518;
+}
+.btnAction:hover {
+  color: #79031d;
+  background-color: #edb518;
+}

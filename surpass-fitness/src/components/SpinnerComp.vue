@@ -13,9 +13,14 @@
 </script>
 
 <style scoped>
+
+.col {
+  height: 100px;
+}
+
 .loader {
   width: 106px;
-  height: 56px;
+  height: 50px;
   display: block;
   margin: 30px auto;
   background-image: linear-gradient(#000407 50px, transparent 0), linear-gradient(#000407 50px, transparent 0), linear-gradient(#000407 50px, transparent 0), linear-gradient(#000407 50px, transparent 0), radial-gradient(circle 14px, #000407 100%, transparent 0);
@@ -32,7 +37,7 @@
   content: '';
   position: absolute;
   width: 56px;
-  height: 56px;
+  height: 50px;
   border: 6px solid #000407;
   border-radius: 50%;
   left: -45px;

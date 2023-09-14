@@ -2,12 +2,9 @@
   <div>
     <section id="landing" class="landing">
       <div class="img">
-        <img
-          src="https://i.postimg.cc/y8x9QGTq/karsten-winegeart-0-Wra5-YYVQJE-unsplash.jpg"
-          class="d-block w-100 img-fluid cImg"
-          loading="lazy"
-          alt="..."
-        />
+        <div class="heading">
+          <h1>Exercise Bikes</h1>
+        </div>
       </div>
     </section>
     <section id="products" class="products">
@@ -34,7 +31,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown button
+              Sort By:
               </button>
               <ul class="dropdown-menu text-center">
                 <li>
@@ -63,7 +60,7 @@
           <div class="category mt-2">
             <h2>CATEGORIES</h2>
             <div class="catList">
-              <router-link class="catLink" to="/product">Products</router-link>
+              <router-link class="catLink" to="/product">All</router-link>
               <router-link class="catLink" to="/treadmill"
                 >Treadmills</router-link
               >
@@ -132,7 +129,7 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.state.products || [];
+      return this.$store.state.products;
     },
     filteredProducts() {
       if (!this.products) {
@@ -150,45 +147,45 @@ export default {
   },
   methods: {
     sortAlphabeticallyAsc() {
-    this.inAsc = true;
-    this.inDesc = false;
-    this.products.sort((a, b) => {
-      const prodTitleA = a.prodTitle.toLowerCase();
-      const prodTitleB = b.prodTitle.toLowerCase();
-      if (prodTitleA < prodTitleB) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-  },
-  sortAlphabeticallyDesc() {
-    this.inAsc = false;
-    this.inDesc = true;
-    this.products.sort((a, b) => {
-      const prodTitleA = a.prodTitle.toLowerCase();
-      const prodTitleB = b.prodTitle.toLowerCase();
-      if (prodTitleA > prodTitleB) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-  },
-  sortAmountAsc() {
-    this.inAsc = true;
-    this.inDesc = false;
-    this.products.sort((a, b) => {
-      return a.prodPrice - b.prodPrice;
-    });
-  },
-  sortAmountDesc() {
-    this.inAsc = false;
-    this.inDesc = true;
-    this.products.sort((a, b) => {
-      return b.prodPrice - a.prodPrice;
-    });
-  },
+      this.inAsc = true;
+      this.inDesc = false;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+        if (prodTitleA < prodTitleB) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAlphabeticallyDesc() {
+      this.inAsc = false;
+      this.inDesc = true;
+      this.products.sort((a, b) => {
+        const prodTitleA = a.prodTitle.toLowerCase();
+        const prodTitleB = b.prodTitle.toLowerCase();
+        if (prodTitleA > prodTitleB) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+    },
+    sortAmountAsc() {
+      this.inAsc = true;
+      this.inDesc = false;
+      this.products.sort((a, b) => {
+        return a.prodPrice - b.prodPrice;
+      });
+    },
+    sortAmountDesc() {
+      this.inAsc = false;
+      this.inDesc = true;
+      this.products.sort((a, b) => {
+        return b.prodPrice - a.prodPrice;
+      });
+    },
     addToCart(product) {
       this.$store.dispatch("addToCart", product);
     },
@@ -215,7 +212,26 @@ img {
 }
 
 .img {
-  object-fit: cover;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("https://i.postimg.cc/rmXdzHpw/szabolcs-toth-Cyuvs-E3-TVak-unsplash.jpg");
+  background-attachment: fixed;
+  height: 86vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.heading {
+  position: relative;
+  top: 40%;
+  color: white;
+  font-weight: 800;
+  text-shadow: 2px 2px black;
+  font-family: "Broad Daylight", sans-serif;
+  font-size: 2.3rem;
 }
 
 .products {
@@ -230,6 +246,10 @@ img {
 
 .right {
   width: 74%;
+}
+
+.dropdown-menu {
+  width: 12rem;
 }
 
 .btn1 {
@@ -296,7 +316,7 @@ img {
 
 .button:hover .hoverText {
   transition: ease-out 0.2s;
-  display: block; 
+  display: block;
 }
 
 @media (max-width: 1000px) {

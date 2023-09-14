@@ -2,7 +2,8 @@
   <div>
     <section id="admin" class="adm">
       <div class="container-fluid">
-        <h1 class="text-center mb-2 p-4">Admin Interface</h1>
+        <h2 class="text-center mb-2 p-4">Admin Interface</h2>
+        <h2 class="text-center mb-2 p-4">Product Interface</h2>
         <div class="container-fluid d-flex justify-content-end">
           <AddButton />
         </div>
@@ -58,10 +59,10 @@
                     <EditButton :product="product" />
                     <button
                       @click.prevent="deleteProduct(product.prodID)"
-                      class="btn1"
+                      class="btnDelete"
                       id="deleteBtn"
                     >
-                      Delete
+                    Delete <i class="bi bi-trash3"></i>
                     </button>
                   </div>
                 </td>
@@ -75,7 +76,7 @@
       </div>
       <section id="users" class="users">
         <div class="container-fluid">
-          <h1 class="display-3 text-center mb-2 p-4">User Interface</h1>
+          <h2 class=" text-center mb-2 p-4">User Interface</h2>
           <div class="container-fluid">
             <AddUser />
           </div>
@@ -133,10 +134,10 @@
                       <EditUser :user="user" />
                       <button
                         @click.prevent="deleteUser(user.userID)"
-                        class="btn1"
+                        class="btnDelete"
                         id="deleteBtn"
                       >
-                        Delete
+                      Delete <i class="bi bi-person-x"></i>
                       </button>
                     </div>
                   </td>
@@ -220,14 +221,13 @@ td {
   width: 7rem;
 }
 
-/* @media (max-width:702px) {
-    .tableRows {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  text-align: center;
+.btnDelete {
+  background-color: transparent;
+  border: none;
+  color: #79031d;
+  font-size: 1.1rem;
 }
-} */
+.btnDelete:hover {
+  color: #edb518;
+}
 </style>
