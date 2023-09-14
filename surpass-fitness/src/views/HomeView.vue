@@ -64,7 +64,7 @@
                 />
                 <div class="container">
                   <div class="carousel-caption text-end">
-                    <h1 class="carouselHeading welcome">Want to buy something?</h1>
+                    <h1 class="carouselHeading welcome"><span class="background">Want to buy something?</span></h1>
                     <p class="carouselText">Take a look at our catalogue!</p>
                     <p>
                       <router-link to="/product" class="dropdown-item"
@@ -78,7 +78,7 @@
               </div>
               <div class="carousel-item">
                 <img
-                  src="https://i.postimg.cc/k4FVnvqn/chase-kinney-FMQBLyh-D2-HU-unsplash.jpg"
+                  src="https://i.postimg.cc/KjrX5fdm/adam-wilson-g-Nzqer-PFt-Ws-unsplash.jpg"
                   class="d-block w-100 img-fluid cImg"
                   loading="lazy"
                   alt="..."
@@ -160,7 +160,7 @@
                       speed and incline settings.
                     </p>
                     <router-link to="/treadmill"
-                      ><button class="btn1">
+                      ><button class="specificBtn">
                         View Treadmills
                       </button></router-link
                     >
@@ -188,7 +188,7 @@
                       stronger, healthier you.
                     </p>
                     <router-link to="/dumbbells"
-                      ><button class="btn1">View Dumbbell</button></router-link
+                      ><button class="specificBtn">View Dumbbells</button></router-link
                     >
                   </div>
                 </div>
@@ -214,7 +214,7 @@
                       Namaste!
                     </p>
                     <router-link to="/yogamats"
-                      ><button class="btn1">View Yoga Mats</button></router-link
+                      ><button class="specificBtn">View Yoga Mats</button></router-link
                     >
                   </div>
                 </div>
@@ -329,6 +329,19 @@ export default {
   border: none;
 }
 
+.specificBtn {
+  background-color: #edb518;
+  color: #79031d;
+  padding: 0.7rem;
+  width: 14rem;
+  border: none;
+}
+
+.specificBtn:hover {
+  background-color: #79031d;
+  color: #edb518;
+}
+
 .welcome {
   font-family: "Broad Daylight", sans-serif;
   font-size: 2.3rem;
@@ -340,6 +353,9 @@ h2 {
   font-weight: 800;
 }
 
+.background {
+  background-color: rgba(0, 0, 0, 0.466);
+}
 .subT {
   color: #000407;
 }
@@ -484,6 +500,20 @@ h2 {
   .tips {
     height: max-content;
   }
+
+  .welcome {
+  font-size: 2rem;
+}
+
+.carouselText {
+  font-size: 1rem;
+}
+
+.btn1 {
+  padding: 0.5rem;
+  width: 10rem;
+}
+
 }
 @media (max-width: 850px) {
   .cImg {
@@ -493,6 +523,34 @@ h2 {
   .carousel-item {
     height: auto;
   }
+  .welcome {
+  font-size: 1.2rem;
+}
+
+.carouselText {
+  font-size: 1rem;
+}
+
+.btn1 {
+  width: 8rem;
+  font-size: 1rem;
+}
+}
+
+@media (max-width: 550px) {
+  .welcome {
+  font-size: 0.9rem;
+}
+
+.carouselText {
+  font-size: 0.8rem;
+}
+
+.btn1 {
+  padding: 0.3rem;
+  width: 8rem;
+  font-size: 0.8rem;
+}
 }
 
 @media (max-width: 425px) {
@@ -515,6 +573,22 @@ h2 {
     height: 360px;
     position: relative;
   }
+
+  .welcome {
+  font-size: 0.8rem;
+  text-shadow: none;
+}
+
+.carouselText {
+  font-size: 0.5rem;
+  text-shadow: none;
+}
+
+.btn1 {
+  padding: 0.3rem;
+  width: 5rem;
+  font-size: 0.6rem;
+}
 }
 @media (max-width: 320px) {
   .cardS {

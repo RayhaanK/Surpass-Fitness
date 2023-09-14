@@ -125,9 +125,7 @@ export default createStore({
     },
     async deleteUser(context, userID) {
       try {
-        const { data } = await axios.delete(`${dataUrl}user/${userID}`);
-        if (data) {
-          await Swal.fire({
+          const deletion = await Swal.fire({
             title: "Delete User",
             text: "Are you sure you want to remove this user?",
             icon: "question",
@@ -136,14 +134,17 @@ export default createStore({
             cancelButtonText:"Cancel",
             reverseButtons: true,
           });
-          Swal.fire("User Removed", "User has been removed." , "success");
-          context.dispatch("fetchUsers");
-        } else {
-          Swal.fire("Error", "An error occurred while deleting the user.", "error")
+          if (deletion.isConfirmed) { await axios.delete(`${dataUrl}user/${userID}`);
+            context.dispatch("fetchUsers");
+            Swal.fire("User Removed", "The User has been removed" , "success");
+          } else {
+            // User canceled the removal
+            Swal.fire("Cancelled", "The removal was cancelled.", "info");
+          }
+        } catch (error) {
+          console.error("Error removing item from cart:", error);
+          Swal.fire("Error", "An error occurred while removing the user.", "error");
         }
-      } catch (e) {
-        Swal.fire("Error", "An error occurred while deleting the user.", "error")
-      }
     },
   
     async editUser(context, payload) {
@@ -433,8 +434,8 @@ async removeFromCart(context, productIndex) {
     });
 
     if (deletion.isConfirmed) {
-      // User confirmed the removal
       context.commit("removeCartItem", productIndex);
+      localStorage.setItem('cart', JSON.stringify(context.state.cart))
       Swal.fire("Product Removed", "Product has been removed from your cart." , "success");
     } else {
       // User canceled the removal
