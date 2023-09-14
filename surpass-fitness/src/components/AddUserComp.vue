@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-end mb-2">
       <button
         type="button"
-        class="btn2 mb-3"
+        class="btnAction mb-3"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal2"
       >
@@ -20,7 +20,7 @@
         aria-hidden="true"
       >
         <div class="modal-dialog">
-          <div class="modal-content bg-dark-subtle">
+          <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
               <button
@@ -33,49 +33,73 @@
             <form @submit.prevent="submitUserForm">
             <div class="modal-body">
                 <p class="title">First Name</p>
-                <input type="text" v-model="postUser.firstName" id="FirstName" />
+                <input type="text" v-model="postUser.firstName" id="FirstName"
+                required
+                  oninvalid="this.setCustomValidity('Please enter User First Name')"
+                  oninput="this.setCustomValidity('')" />
                 <p class="title">Last Name</p>
                 <input
                 type="text"
                 v-model="postUser.lastName"
                 id="lastName"
+                required
+                  oninvalid="this.setCustomValidity('Please enter User Last Name')"
+                  oninput="this.setCustomValidity('')"
                 />
                 <p class="title">Age</p>
-                <input type="text" v-model="postUser.userAge" id="details" />
+                <input type="text" v-model="postUser.userAge" id="details" 
+                required
+                  oninvalid="this.setCustomValidity('Please enter User Age')"
+                  oninput="this.setCustomValidity('')"/>
                 <p class="title">Gender</p>
                 <input
                 type="text"
                 v-model="postUser.gender"
                 id="description"
+                required
+                  oninvalid="this.setCustomValidity('Please enter User Gender')"
+                  oninput="this.setCustomValidity('')"
                 />
                 <p class="title">Email Address</p>
-                <input type="text" v-model="postUser.userEmail" id="amount" />
+                <input type="text" v-model="postUser.userEmail" id="amount"
+                required
+                  oninvalid="this.setCustomValidity('Please enter User Email Address')"
+                  oninput="this.setCustomValidity('')" />
                 <p class="title">Password</p>
                 <input
                 type="text"
                 v-model="postUser.userPass"
                 id="quantity"
+                required
+                  oninvalid="this.setCustomValidity('Please enter User Password')"
+                  oninput="this.setCustomValidity('')"
                 />
                 <p class="title">Profile Image</p>
                 <input
                 type="text"
                 v-model="postUser.userImage"
                 id="imageLink"
+                required
+                  oninvalid="this.setCustomValidity('Please enter User Profile Image')"
+                  oninput="this.setCustomValidity('')"
                 />
                 <p class="title">User Role</p>
                 <input
                 type="text"
                 v-model="postUser.userRole"
                 id="quantity"
+                required
+                  oninvalid="this.setCustomValidity('Please enter User Role')"
+                  oninput="this.setCustomValidity('')"
                 />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn1" data-bs-dismiss="modal">
+                <button type="button" class="btnAction" data-bs-dismiss="modal">
                   Close
                 </button>
                 <button
                 type="submit"
-                class="btn1"
+                class="btnAction"
                 id="addProduct"
                 >
                 Save changes

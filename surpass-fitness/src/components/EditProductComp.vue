@@ -2,12 +2,12 @@
   <div>
     <button
       type="button"
-      class="btn2 mb-3"
+      class="btnEdit mb-3"
       @click="editModal(product.prodID)"
       data-bs-toggle="modal"
       :data-bs-target="'#pexampleModal' + product.prodID"
     >
-      Edit
+      Edit <i class="bi bi-pencil-square"></i>
     </button>
     <!-- Modal -->
     <div class="container">
@@ -19,7 +19,7 @@
         aria-hidden="true"
       >
         <div class="modal-dialog">
-          <div class="modal-content bg-dark-subtle">
+          <div class="modal-content">
             <div class="modal-header text-center">
               <h1 class="modal-title fs-5" id="pexampleModalLabel">
                 Edit Product
@@ -63,14 +63,14 @@
                 />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn1" data-bs-dismiss="modal">
+                <button type="button" class="btnAction" data-bs-dismiss="modal">
                   Close
                 </button>
                 <button
                   @click.prevent="updateProduct(product.prodID)"
                   type="submit"
                   data-bs-dismiss="modal"
-                  class="btn1"
+                  class="btnAction"
                   id="addProduct"
                 >
                   Save changes
@@ -126,5 +126,15 @@ export default {
 <style scoped>
 input {
   width: 100%;
+}
+
+.btnEdit {
+  background-color: transparent;
+  border: none;
+  color: #79031d;
+  font-size: 1.1rem;
+}
+.btnEdit:hover {
+  color: #edb518;
 }
 </style>

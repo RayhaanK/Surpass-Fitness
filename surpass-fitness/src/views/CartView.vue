@@ -1,33 +1,35 @@
 <template>
   <div>
-    <h1>Your Cart <i class="bi bi-basket"></i></h1>
-    <center>
+    <section class="cart" id="cart">
+      <h1>Your Cart <i class="bi bi-basket"></i></h1>
+      <div class="cartDisplay">
+    <div class="container-fluid">
       <div class="table-responsive">
         <table class="table table-bordered border-black text-center">
           <thead>
             <tr>
               <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
               <th>Product Image</th>
+              <th>Price</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(item, index) in cart" :key="item.id">
-              <td>{{ item.prodTitle }}</td>
-              <td>R{{ item.prodPrice }}</td>
-              <td><img :src="item.prodImage" class="card-img-top img-fluid" :alt="prodTitle"></td>
+              <td><div class="tablerows">{{ item.prodTitle }}</div></td>
+              <td><div class="tablerows">R{{ item.prodPrice }}</div></td>
+              <td><div class="tablerows"><img :src="item.prodImage" class="card-img-top img-fluid" :alt="prodTitle"></div></td>
               <td>
-                <button @click="removeFromCart(index)">Remove</button>
+                <div class="tablerows"><button class="btnDelete" @click="removeFromCart(index)">Remove <i class="bi bi-trash3"></i></button></div>
               </td>
             </tr>
           </tbody>
         </table>
-        <button @click="redirectToCheckout">Proceed To Checkout...</button>
       </div>
-    </center>
   </div>
+</div>
+</section>
+</div>
 </template>
 
 
@@ -56,7 +58,49 @@ export default {
 </script>
 
 <style scoped>
+
+.cart {
+  min-height: 80vh;
+}
+
+.cartDisplay {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
 img{
   width: 20%;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  height: 150px;
+}
+
+.tablerows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+.btnDelete {
+  background-color: transparent;
+  border: none;
+  color: #79031d;
+  background-color: #edb518;
+  font-size: 1.1rem;
+  width: 7rem;
+  padding: 0.2rem;
+}
+
+.btnDelete:hover {
+  color: #edb518;
+  background-color: #79031d;
 }
 </style>

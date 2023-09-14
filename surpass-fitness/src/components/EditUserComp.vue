@@ -1,13 +1,13 @@
 <template>
-    <div>
-      <button
+  <div>
+    <button
       type="button"
-      class="btn1"
+      class="btnEdit"
       @click="modalEdit(user.userID)"
       data-bs-toggle="modal"
       :data-bs-target="'#texampleModal' + user.userID"
     >
-      edit
+      Edit <i class="bi bi-pencil-square"></i>
     </button>
 
     <!-- Modal -->
@@ -21,9 +21,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="texampleModalLabel3">
-              Edit User
-            </h1>
+            <h1 class="modal-title fs-5" id="texampleModalLabel3">Edit User</h1>
             <button
               type="button"
               class="btn-close"
@@ -37,51 +35,75 @@
               type="text"
               placeholder="first name"
               v-model="editUser.firstName"
+              required
+              oninvalid="this.setCustomValidity('Please enter User First Name')"
+              oninput="this.setCustomValidity('')"
             />
             <label>last name:</label>
             <input
               type="text"
               placeholder="last name"
               v-model="editUser.lastName"
+              required
+              oninvalid="this.setCustomValidity('Please enter User Last Name')"
+              oninput="this.setCustomValidity('')"
+            />
             />
             <label>Age:</label>
             <input
               type="number"
               placeholder="age"
               v-model="editUser.userAge"
+              required
+              oninvalid="this.setCustomValidity('Please enter User Age')"
+              oninput="this.setCustomValidity('')"
+            />
             />
             <label>gender:</label>
             <input
               type="text"
               placeholder="gender"
               v-model="editUser.gender"
+              required
+              oninvalid="this.setCustomValidity('Please enter User Gender')"
+              oninput="this.setCustomValidity('')"
+            />
             />
             <label>user role:</label>
             <input
               type="text"
               placeholder="role"
               v-model="editUser.userRole"
+              required
+              oninvalid="this.setCustomValidity('Please enter User Role')"
+              oninput="this.setCustomValidity('')"
             />
             <label>email address:</label>
             <input
               type="text"
               placeholder="email address"
               v-model="editUser.userEmail"
+              required
+              oninvalid="this.setCustomValidity('Please enter User Email Address')"
+              oninput="this.setCustomValidity('')"
             />
             <label>user profile:</label>
             <input
               type="text"
               placeholder="profile image"
               v-model="editUser.userImage"
+              required
+              oninvalid="this.setCustomValidity('Please enter User Profile Image')"
+              oninput="this.setCustomValidity('')"
             />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn" data-bs-dismiss="modal">
+            <button type="button" class="btnAction" data-bs-dismiss="modal">
               Close
             </button>
             <button
               type="button"
-              class="btn"
+              class="btnAction"
               data-bs-dismiss="modal"
               @click="updateUser(user.userID)"
             >
@@ -91,12 +113,12 @@
         </div>
       </div>
     </div>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    props: ["user"],
+  </div>
+</template>
+
+<script>
+export default {
+  props: ["user"],
   data() {
     return {
       editUser: {
@@ -131,13 +153,22 @@
           console.error("Error updating: ", err);
         });
     },
-  },  
-  };
-  </script>
-  
-  <style scoped>
-  input {
-    width: 100%;
-  }
-  </style>
-  
+  },
+};
+</script>
+
+<style scoped>
+input {
+  width: 100%;
+}
+
+.btnEdit {
+  background-color: transparent;
+  border: none;
+  color: #79031d;
+  font-size: 1.1rem;
+}
+.btnEdit:hover {
+  color: #edb518;
+}
+</style>
