@@ -99,8 +99,10 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Rayhaan Khan</h5>
-                <p class="card-text d-flex justify-content-center">
-                  Rayhaan Khan - Founder & CEO <br>
+                <div class="founder mt-3">
+                  <span class="ceo">Rayhaan Khan - Founder & CEO</span>
+                </div>
+                <p class="card-text d-flex justify-content-center mt-4">
                   Rayhaan Khan is the heartbeat of
                   Surpass Fitness. As the Founder and CEO, he embodies the
                   passion and dedication that drive our company's success. With
@@ -276,6 +278,7 @@ export default {};
   font-size: 1.1rem;
 }
 
+
 .card {
   border: none;
 }
@@ -310,8 +313,13 @@ export default {};
   align-content: center;
 }
 
+.ceo {
+  color: #edb518;
+  font-weight: 800;
+}
+
 .faqs {
-  height: 70vh;
+  height: 80vh;
 }
 
 .accordion-button {

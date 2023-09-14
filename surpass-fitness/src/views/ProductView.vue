@@ -2,12 +2,9 @@
   <div>
     <section id="landing" class="landing">
       <div class="img">
-        <img
-          src="https://i.postimg.cc/y8x9QGTq/karsten-winegeart-0-Wra5-YYVQJE-unsplash.jpg"
-          class="d-block w-100 img-fluid cImg"
-          loading="lazy"
-          alt="..."
-        />
+        <div class="heading">
+          <h1>All Products</h1>
+        </div>
       </div>
     </section>
     <section id="products" class="products">
@@ -206,6 +203,23 @@ export default {
 .landing {
   height: 90vh;
 }
+.img {
+  background-image: url("https://i.postimg.cc/rmXdzHpw/szabolcs-toth-Cyuvs-E3-TVak-unsplash.jpg");
+  background-attachment: fixed;
+  height: 86vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.heading {
+  position: relative;
+  top: 40%;
+  color: white;
+  font-weight: 800;
+  text-shadow: 2px 2px black;
+  font-family: "Broad Daylight", sans-serif;
+  font-size: 2.3rem;
+}
 
 .col {
   width: max-content;
@@ -219,10 +233,6 @@ img {
   height: 90vh;
   width: 100%;
   aspect-ratio: 1/1;
-}
-
-.img {
-  object-fit: cover;
 }
 
 .products {

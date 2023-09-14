@@ -1,7 +1,7 @@
 <template>
   <div>
     <section id="register" class="register">
-      <div class="container-fluid d-flex g-0">
+      <div class="container-fluid d-flex g-0 resp">
         <div class="left p-3">
           <div class="welcome">
             <h2 class="mb-5">WELCOME BACK!</h2>
@@ -108,6 +108,7 @@
               </div>
               <div class="signUp">
                 <button type="submit">SIGN UP</button>
+                <p class="white">Already Registered? Login!<span><router-link to="/login"><button>LOGIN</button></router-link></span></p>
               </div>
             </form>
           </div>
@@ -142,7 +143,7 @@ export default {
 
 <style scoped>
 .register {
-  height: 120vh;
+  height: max-content;
 }
 
 h2,
@@ -170,14 +171,34 @@ label {
 }
 
 .registerForm {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
 input {
-  width: 40rem;
+  width: 100%;
+}
+
+.white {
+  color: #f5f7f7; 
+  display: none;
+}
+
+@media (max-width: 900px) {
+
+  .resp {
+    flex-direction: column !important;
+  }
+
+  .right {
+    width: 90%;
+  }
+
+  .white {
+    display: block;
+  }
+
+  .left {
+   display: none;
+  }
 }
 </style>
