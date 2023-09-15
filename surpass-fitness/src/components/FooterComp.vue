@@ -23,7 +23,7 @@
           <h5>Quick Links</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-                <router-link to="/" class="nav-link"
+                <router-link to="/" v-scroll-to="'#Home'" class="nav-link"
               >Home</router-link
             >
             </li>
@@ -39,16 +39,16 @@
           <h5>About</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-                <router-link to="/about" class="dropdown-item"
+                <router-link to="/about" v-scroll-to="'#AboutUs'" class="dropdown-item"
                   >About Us</router-link>
             </li>
             <li class="nav-item mb-2">
-                <router-link to="#" class="dropdown-item"
+                <router-link to="/about" v-scroll-to="'#WhyChooseUs'" class="dropdown-item"
                   >Why Choose Us</router-link
                 >
             </li>
             <li class="nav-item mb-2">
-                <router-link to="#" class="dropdown-item">The Team</router-link>
+                <router-link to="/about" v-scroll-to="'#Team'" class="dropdown-item">The Team</router-link>
             </li>
           </ul>
         </div>
@@ -57,10 +57,10 @@
           <h5>Help</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-                <router-link to="#" class="dropdown-item">FAQS</router-link>
+                <router-link to="/about" v-scroll-to="'#Faqs'" class="dropdown-item">FAQS</router-link>
             </li>
             <li class="nav-item mb-2">
-                <router-link to="/contact" class="nav-link">Contact Us</router-link>
+                <router-link to="/contact"  v-scroll-to="'#contact'" class="nav-link">Contact Us</router-link>
             </li>
           </ul>
         </div>

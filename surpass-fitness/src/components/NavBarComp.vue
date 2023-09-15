@@ -39,21 +39,21 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <router-link to="/about#AboutUs" class="dropdown-item"
+                <router-link to="/about" v-scroll-to="'#AboutUs'" class="dropdown-item"
                   >About Us</router-link
                 >
               </li>
               <li>
-                <router-link to="/about#WhyChooseUs" class="dropdown-item"
+                <router-link to="/about" v-scroll-to="'#WhyChooseUs'" class="dropdown-item"
                   >Why Choose Us</router-link
                 >
               </li>
               <li>
-                <router-link to="/about#Team" class="dropdown-item">The Team</router-link>
+                <router-link to="/about" v-scroll-to="'#Team'" class="dropdown-item">The Team</router-link>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link to="/about#Faqs" class="dropdown-item">FAQS</router-link>
+                <router-link to="/about" v-scroll-to="'#Faqs'"  class="dropdown-item">FAQS</router-link>
               </li>
             </ul>
           </li>
