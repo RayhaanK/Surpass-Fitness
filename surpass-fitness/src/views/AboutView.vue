@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to="/about" v-scroll-to="'#AboutUs'" ><button class="scroll"><i class="bi bi-arrow-up"></i></button></router-link>
     <section id="AboutUs" class="aboutUs">
       <div class="container-fluid aboutContain mt-md-4 mt-4">
         <h2 class="font">OUR STORY</h2>
@@ -260,6 +261,19 @@ export default {};
 
 .font {
   font-family: 'Broad Daylight', sans-serif;
+}
+
+.scroll {
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  z-index: 1;
+  padding: 0.6rem;
+  border-radius: 25px;
+   border: none;
+   background-color: #79031d;
+   color: #edb518;
+   font-size: 1.2rem;
 }
 .aboutUs {
   height: 60vh;
