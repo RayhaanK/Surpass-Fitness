@@ -109,7 +109,7 @@
               >
             </div>
           </div>
-          <div v-else class="row d-flex justify-content-center">
+          <div v-else class="row d-flex justify-content-center spinnerRow">
             <Spinner />
           </div>
         </div>
@@ -200,7 +200,7 @@ export default {
 
 <style scoped>
 .landing {
-  height: 90vh;
+  min-height: 90vh;
 }
 .img {
   background-image: linear-gradient(
@@ -322,6 +322,10 @@ img {
 .button:hover .hoverText {
   transition: ease-out 0.2s;
   display: block;
+}
+
+.spinnerRow {
+  align-items: center;
 }
 
 @media (max-width: 1000px) {
