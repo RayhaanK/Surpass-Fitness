@@ -91,11 +91,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item" >
-            <router-link to="/admin" class="nav-link">Admin</router-link>
-          </li>
           <li class="nav-item">
             <router-link to="/contact" class="nav-link">Contact Us</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/admin" class="nav-link"  v-show="isAdmin">Admin</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/cart" class="nav-link"
@@ -122,7 +122,26 @@
 </template>
 
 <script>
-export default {};
+import {useCookies} from 'vue3-cookies'
+const { cookies } = useCookies()
+export default {
+  computed: {
+    user() {
+      return this.$store.state.users || cookies.get('LegitUser')
+    },
+    result() {
+      return this.user?.result
+    },
+    isAdmin() {
+      console.log(this.result);
+  console.log(this.result?.userRole);
+      return this.result?.userRole?.toLowerCase() === "admin"
+    },
+    hasCookie() {
+      return cookies.get("LegitUser") !== null
+    }
+  }
+};
 </script>
 
 <style scoped>
