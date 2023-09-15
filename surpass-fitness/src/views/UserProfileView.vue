@@ -161,6 +161,7 @@
 <script>
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
+import Swal from 'sweetalert2';
 export default {
   data() {
     return {
@@ -212,7 +213,17 @@ export default {
         });
     },
     async deleteUser(userID) {
-      this.$store.dispatch("deleteUser", userID);
+  // Display a confirmation dialog
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You are about to delete this user!',
+    icon: 'warning',
+    showCancelButton: true,
+    cancelButtonText: 'No, keep it',
+    confirmButtonText: 'Yes, delete it!',
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      await this.$store.dispatch("deleteUser", userID);
       try {
         const data = JSON.parse(localStorage.getItem("user"));
         if (data) {
@@ -223,9 +234,14 @@ export default {
       } catch (error) {
         console.error("Error Warning:", error);
       }
-    },
-  },
+      Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire('Cancelled', 'The user was not deleted.', 'error');
+    }
+  });
+},
   }
+}
 </script>
 
 <style scoped>

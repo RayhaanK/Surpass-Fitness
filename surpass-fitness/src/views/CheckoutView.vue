@@ -14,7 +14,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in cart" :key="item.id">
+                <tr v-for="(item) in cart" :key="item.id">
                   <td>
                     <div class="tablerows">{{ item.prodTitle }}</div>
                   </td>
