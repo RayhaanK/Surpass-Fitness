@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to="/product" v-scroll-to="'#landing'" ><button class="scroll"><i class="bi bi-arrow-up"></i></button></router-link>
     <section id="landing" class="landing">
       <div class="img">
         <div class="heading">
@@ -202,6 +203,19 @@ export default {
 <style scoped>
 .landing {
   min-height: 90vh;
+}
+
+.scroll {
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  z-index: 1;
+  padding: 0.6rem;
+  border-radius: 25px;
+   border: none;
+   background-color: #79031d;
+   color: #edb518;
+   font-size: 1.2rem;
 }
 .img {
   background-image: linear-gradient(

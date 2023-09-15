@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to="/admin" v-scroll-to="'#admin'" ><button class="scroll"><i class="bi bi-arrow-up"></i></button></router-link>
     <section id="admin" class="adm">
       <div class="container-fluid">
         <h2 class="text-center mb-2 p-4">Admin Interface</h2>
@@ -194,6 +195,19 @@ export default {
 <style scoped>
 .adm {
   height: max-content;
+}
+
+.scroll {
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  z-index: 1;
+  padding: 0.6rem;
+  border-radius: 25px;
+   border: none;
+   background-color: #79031d;
+   color: #edb518;
+   font-size: 1.2rem;
 }
 
 .tableRows {

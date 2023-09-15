@@ -29,7 +29,11 @@
                 required
               />
             </div>
-            <div class="loginButton"><button type="submit" class="btn4">LOGIN</button></div>
+            <div class="loginButton"><button type="submit" class="btn4">LOGIN</button>
+              <div class="already mt-2"><p>Don't have an account?</p>
+            <router-link to="/register"><button class="btn4 ms-2">REGISTER</button></router-link>
+            </div>
+            </div>
           </form>
         </div>
       </div>
@@ -82,7 +86,7 @@ export default {
 
 .loginForm {
   width: 70%;
-  height: 50vh;
+  height: 60vh;
   border-radius: 25px;
   background-color: #79031d;
 }
@@ -91,7 +95,8 @@ h2,
 h3,
 h4,
 h5,
-label {
+label,
+p{
   color: #f5f7f7 !important;
 }
 
@@ -105,5 +110,21 @@ label {
 .btn4:hover {
   transform: scale(1.1);
   transition: ease-out 0.2s;
+}
+
+.already {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 500px) {
+  .already {
+  flex-direction: column;
+}
+
+.loginForm {
+  width: 100%;
+}
+  
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to="/" v-scroll-to="'#Home'" ><button class="scroll"><i class="bi bi-arrow-up"></i></button></router-link>
     <section id="Home" class="home">
       <div class="landing">
         <div class="container-fluid gx-0 contC">
@@ -303,6 +304,19 @@ export default {
 <style scoped>
 .carousel-item {
   height: 86vh;
+}
+
+.scroll {
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  z-index: 1;
+  padding: 0.6rem;
+  border-radius: 25px;
+   border: none;
+   background-color: #79031d;
+   color: #edb518;
+   font-size: 1.2rem;
 }
 
 .cImg {
