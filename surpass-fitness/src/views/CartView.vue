@@ -3,35 +3,59 @@
     <section class="cart" id="cart">
       <h1>Your Cart <i class="bi bi-basket"></i></h1>
       <div class="cartDisplay">
-    <div class="container-fluid">
-      <div class="table-responsive">
-        <table class="table table-bordered border-black text-center">
-          <thead>
-            <tr>
-              <th>Product Name</th>
-              <th>Product Image</th>
-              <th>Price</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in cart" :key="item.id">
-              <td><div class="tablerows">{{ item.prodTitle }}</div></td>
-              <td><div class="tablerows">R{{ item.prodPrice }}</div></td>
-              <td><div class="tablerows"><img :src="item.prodImage" class="card-img-top img-fluid" :alt="prodTitle"></div></td>
-              <td>
-                <div class="tablerows"><button class="btnDelete" @click="removeFromCart(index)">Remove <i class="bi bi-trash3"></i></button></div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="container-fluid">
+          <div class="table-responsive">
+            <table class="table table-bordered border-black text-center">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Product Image</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in cart" :key="item.id">
+                  <td>
+                    <div class="tablerows">{{ item.prodTitle }}</div>
+                  </td>
+                  <td>
+                    <div class="tablerows">
+                      <img
+                      :src="item.prodImage"
+                      class="card-img-top img-fluid"
+                      :alt="prodTitle"
+                      />
+                    </div>
+                  </td>
+                  <td>
+                    <div class="tablerows">R{{ item.prodPrice }}</div>
+                  </td>
+                  <td>
+                    <div class="tablerows">
+                      <button class="btnDelete" @click="removeFromCart(index)">
+                        Remove <i class="bi bi-trash3"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody id="checkOutput"></tbody>
+              <tbody>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col" class="last">Amount Due:</th>
+                  <th scope="col" class="last">R {{ totalAmount }}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+    </section>
   </div>
-</div>
-</section>
-</div>
 </template>
-
 
 <script>
 export default {
@@ -39,26 +63,33 @@ export default {
     cart() {
       return this.$store.state.cart;
     },
+    totalAmount() {
+      return this.cart.reduce((total, item) => {
+        return total + item.prodPrice;
+      }, 0);
+    },
   },
   methods: {
     removeFromCart(index) {
-      this.$store.dispatch('removeFromCart', index);
-      localStorage.setItem('cart', JSON.stringify(this.cart));
+      this.$store.dispatch("removeFromCart", index);
+      localStorage.setItem("cart", JSON.stringify(this.cart));
     },
     updateQuantity(index) {
       const item = this.cart[index];
-      this.$store.dispatch('addToCart', { product: item, quantity: item.quantity });
-      localStorage.setItem('cart', JSON.stringify(this.cart));
+      this.$store.dispatch("addToCart", {
+        product: item,
+        quantity: item.quantity,
+      });
+      localStorage.setItem("cart", JSON.stringify(this.cart));
     },
     redirectToCheckout() {
-      this.$router.push({ name: 'checkout' });
-    }
+      this.$router.push({ name: "checkout" });
+    },
   },
 };
 </script>
 
 <style scoped>
-
 .cart {
   min-height: 80vh;
 }
@@ -69,8 +100,8 @@ export default {
   flex-direction: column;
 }
 
-img{
-  width: 20%;
+img {
+  width: 15rem;
 }
 
 th {
