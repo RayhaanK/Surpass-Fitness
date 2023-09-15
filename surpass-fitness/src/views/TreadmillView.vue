@@ -3,7 +3,7 @@
     <section id="landing" class="landing">
       <div class="img">
         <div class="heading">
-          <h1>Exercise Bikes</h1>
+          <h1>Treadmills</h1>
         </div>
       </div>
     </section>
@@ -31,7 +31,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-              Sort By:
+                Sort By:
               </button>
               <ul class="dropdown-menu text-center">
                 <li>
@@ -79,7 +79,10 @@
           </div>
         </div>
         <div class="right d-flex justify-content-center ms-lg-4">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+          <div
+            class="row row-cols-1 row-cols-md-2 row-cols-xl-3"
+            v-if="products"
+          >
             <div
               class="col p-3 p-lg-5"
               v-for="product in filteredProducts"
@@ -114,6 +117,9 @@
               >
             </div>
           </div>
+          <div v-else class="row d-flex justify-content-center spinnerRow">
+            <Spinner />
+          </div>
         </div>
       </div>
     </section>
@@ -121,7 +127,11 @@
 </template>
 
 <script>
+import Spinner from "@/components/SpinnerComp.vue";
 export default {
+  components: {
+    Spinner,
+  },
   data() {
     return {
       searchQuery: "",
@@ -316,6 +326,10 @@ img {
 .button:hover .hoverText {
   transition: ease-out 0.2s;
   display: block;
+}
+
+.spinnerRow {
+  align-items: center;
 }
 
 @media (max-width: 1000px) {
