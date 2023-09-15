@@ -110,7 +110,8 @@ export default createStore({
             icon: "success",
             timer: 3000,
           });
-          router.push({ name: "home" });
+          await router.push({ name: "home" });
+          location.reload()
         } else {
           sweet({
             title: "Error",

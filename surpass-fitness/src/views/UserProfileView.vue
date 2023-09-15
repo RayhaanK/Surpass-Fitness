@@ -12,6 +12,7 @@
                 :src="user.userImage"
                 class="card-img-top imgU"
                 :alt="user.firstName"
+                loading="lazy"
               />
             </div>
             <div class="col-md-8 colText">
@@ -186,6 +187,7 @@ export default {
         const data = JSON.parse(localStorage.getItem("user"));
         if (data) {
           localStorage.removeItem("user");
+          location.reload()
         }
       } catch (error) {
         console.error("Error Warning:", error);
@@ -213,7 +215,6 @@ export default {
         });
     },
     async deleteUser(userID) {
-  // Display a confirmation dialog
   Swal.fire({
     title: 'Are you sure?',
     text: 'You are about to delete this user!',

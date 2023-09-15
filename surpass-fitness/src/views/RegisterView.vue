@@ -7,7 +7,7 @@
             <h2 class="mb-5">WELCOME BACK!</h2>
             <h4 class="mb-3">Have an account already?</h4>
             <h5 class="mb-4">Login!</h5>
-            <router-link to="/login"><button>LOGIN</button></router-link>
+            <router-link to="/login"><button  class="btn4">LOGIN</button></router-link>
           </div>
         </div>
         <div class="right mt-4 mx-auto p-4">
@@ -107,8 +107,8 @@
                 />
               </div>
               <div class="signUp">
-                <button type="submit">SIGN UP</button>
-                <p class="white">Already Registered? Login!<span><router-link to="/login"><button>LOGIN</button></router-link></span></p>
+                <button type="submit" class="btn4">SIGN UP</button>
+                <p class="white">Already Registered? Login!<router-link to="/login"><button class="btn3 mt-1 ms-2">LOGIN</button></router-link></p>
               </div>
             </form>
           </div>
@@ -183,6 +183,29 @@ input {
   display: none;
 }
 
+.btn4 {
+  border: none;
+  width: 7rem;
+  padding: 0.2rem;
+  background-color: #edb518;
+  color: #79031d;
+}
+.btn4:hover {
+  transform: scale(1.1);
+  transition: ease-out 0.2s;
+}
+.btn3 {
+  border: none;
+  width: 5rem;
+  padding: 0.1rem;
+  background-color: #edb518;
+  color: #79031d;
+}
+.btn3:hover {
+  transform: scale(1.1);
+  transition: ease-out 0.2s;
+}
+
 @media (max-width: 900px) {
 
   .resp {
@@ -200,5 +223,12 @@ input {
   .left {
    display: none;
   }
+}
+
+
+@media (max-width: 400px) {
+  .btn3:hover {
+  transform: none;
+}
 }
 </style>

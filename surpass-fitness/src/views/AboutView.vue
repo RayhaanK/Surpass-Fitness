@@ -94,6 +94,7 @@
                 src="https://i.postimg.cc/0NYJhdSq/rayhaanKhanAbout1.png"
                 class="img-fluid rounded-start"
                 alt="..."
+                loading="lazy"
               />
             </div>
             <div class="col-md-8">
