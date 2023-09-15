@@ -24,6 +24,7 @@
                         :src="item.prodImage"
                         class="card-img-top img-fluid"
                         :alt="prodTitle"
+                        loading="lazy"
                       />
                     </div>
                   </td>

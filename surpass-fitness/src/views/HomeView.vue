@@ -270,8 +270,8 @@
                   Book a personal trainer to help you on your journey on the
                   following website!
                 </p>
-                <a href="#" class="card-link"
-                  ><button class="btn1">More</button></a
+                <a href="https://capstone-project-keeno-fourie.web.app/" class="card-link" target="_blank"
+                  ><button class="btn1">View Lift Off Life</button></a
                 >
               </div>
             </div>

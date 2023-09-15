@@ -14,6 +14,7 @@
                   :src="product.prodImage"
                   class="img-fluid"
                   :alt="product.prodTitle"
+                  loading="lazy"
                 />
               </div>
               <div class="col-md-8 textCol">

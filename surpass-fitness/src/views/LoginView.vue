@@ -29,7 +29,7 @@
                 required
               />
             </div>
-            <div class="loginBtn"><button type="submit">LOGIN</button></div>
+            <div class="loginButton"><button type="submit" class="btn4">LOGIN</button></div>
           </form>
         </div>
       </div>
@@ -93,5 +93,17 @@ h4,
 h5,
 label {
   color: #f5f7f7 !important;
+}
+
+.btn4 {
+  border: none;
+  width: 7rem;
+  padding: 0.2rem;
+  background-color: #edb518;
+  color: #79031d;
+}
+.btn4:hover {
+  transform: scale(1.1);
+  transition: ease-out 0.2s;
 }
 </style>

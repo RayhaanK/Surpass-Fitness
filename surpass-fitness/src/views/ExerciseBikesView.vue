@@ -100,6 +100,7 @@
                         :src="product.prodImage"
                         class="card-img-top prodImg"
                         :alt="product.prodTitle"
+                        loading="lazy"
                       />
                     </div>
                     <div class="card-body">

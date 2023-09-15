@@ -95,7 +95,7 @@
             <router-link to="/contact" class="nav-link">Contact Us</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/admin" class="nav-link"  v-show="isAdmin">Admin</router-link>
+            <router-link to="/admin" class="nav-link"  v-if="user ? user.userRole === 'admin' : null">Admin</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/cart" class="nav-link"
@@ -127,14 +127,14 @@ const { cookies } = useCookies()
 export default {
   computed: {
     user() {
-      return this.$store.state.users || cookies.get('LegitUser')
+      return this.$store.state.user || cookies.get('LegitUser')
     },
     result() {
       return this.user?.result
     },
     isAdmin() {
       console.log(this.result);
-  console.log(this.result?.userRole);
+      console.log(this.result?.userRole);
       return this.result?.userRole?.toLowerCase() === "admin"
     },
     hasCookie() {

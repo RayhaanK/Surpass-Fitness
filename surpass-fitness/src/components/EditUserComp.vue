@@ -30,7 +30,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <label>first name:</label>
+            <label>First name</label>
             <input
               type="text"
               placeholder="first name"
@@ -39,7 +39,7 @@
               oninvalid="this.setCustomValidity('Please enter User First Name')"
               oninput="this.setCustomValidity('')"
             />
-            <label>last name:</label>
+            <label>Last name</label>
             <input
               type="text"
               placeholder="last name"
@@ -48,8 +48,7 @@
               oninvalid="this.setCustomValidity('Please enter User Last Name')"
               oninput="this.setCustomValidity('')"
             />
-            />
-            <label>Age:</label>
+            <label>Age</label>
             <input
               type="number"
               placeholder="age"
@@ -58,8 +57,7 @@
               oninvalid="this.setCustomValidity('Please enter User Age')"
               oninput="this.setCustomValidity('')"
             />
-            />
-            <label>gender:</label>
+            <label>Gender</label>
             <input
               type="text"
               placeholder="gender"
@@ -68,8 +66,7 @@
               oninvalid="this.setCustomValidity('Please enter User Gender')"
               oninput="this.setCustomValidity('')"
             />
-            />
-            <label>user role:</label>
+            <label>User role</label>
             <input
               type="text"
               placeholder="role"
@@ -78,7 +75,7 @@
               oninvalid="this.setCustomValidity('Please enter User Role')"
               oninput="this.setCustomValidity('')"
             />
-            <label>email address:</label>
+            <label>Email Address</label>
             <input
               type="text"
               placeholder="email address"
@@ -87,7 +84,7 @@
               oninvalid="this.setCustomValidity('Please enter User Email Address')"
               oninput="this.setCustomValidity('')"
             />
-            <label>user profile:</label>
+            <label>User Profile</label>
             <input
               type="text"
               placeholder="profile image"
