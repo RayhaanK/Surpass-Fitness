@@ -467,6 +467,14 @@ export default createStore({
         );
       }
     },
+    submitCheckout() {
+      sweet({
+        title: "Purchase Successful",
+        text: "Your purchase has been successful",
+        icon: "success",
+        timer: 3000,
+      });
+    }
   },
   modules: {},
 });

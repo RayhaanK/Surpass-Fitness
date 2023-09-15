@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <section class="cart" id="cart">
-      <h2 class="mt-3 mb-3">Your Cart <i class="bi bi-basket"></i></h2>
+    <div>
+        <section class="cart" id="cart">
+      <h2 class>Checkout</h2>
       <div class="cartDisplay">
         <div class="container-fluid">
           <div class="table-responsive">
@@ -11,7 +11,6 @@
                   <th>Product Name</th>
                   <th>Product Image</th>
                   <th>Price</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -31,19 +30,11 @@
                   <td>
                     <div class="tablerows">R{{ item.prodPrice }}</div>
                   </td>
-                  <td>
-                    <div class="tablerows">
-                      <button class="btnDelete" @click="removeFromCart(index)">
-                        Remove <i class="bi bi-trash3"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
               </tbody>
               <tbody id="checkOutput"></tbody>
               <tbody>
                 <tr>
-                  <th scope="col"></th>
                   <th scope="col"></th>
                   <th scope="col" class="last">Amount Due:</th>
                   <th scope="col" class="last">R {{ totalAmount }}</th>
@@ -51,18 +42,22 @@
               </tbody>
             </table>
           </div>
+          <h2>Changed your mind?</h2>
+          <router-link to="/cart"><button class="btnBack mb-4">Go back to your Cart</button></router-link>
         </div>
-        <div class="checkout">
-          <router-link to="/checkout"><button class="btnCheckout">Proceed to Checkout</button></router-link>
-        </div>
-      </div>
+    </div>
     </section>
-  </div>
+    <Checkout/>
+    </div>
 </template>
 
 <script>
-export default {
-  computed: {
+import Checkout from "@/components/CheckoutComp.vue"
+    export default {
+        components: {
+            Checkout
+        },
+        computed: {
     cart() {
       return this.$store.state.cart;
     },
@@ -72,23 +67,12 @@ export default {
       }, 0);
     },
   },
-  methods: {
-    removeFromCart(index) {
-      this.$store.dispatch("removeFromCart", index);
-      localStorage.setItem("cart", JSON.stringify(this.cart));
-    },
-  },
-};
+    }
 </script>
 
 <style scoped>
-.cart {
-  min-height: 80vh;
-}
-
-
-img {
-  width: 15rem;
+.cart  {
+    min-height: 60vh;
 }
 
 th {
@@ -107,32 +91,21 @@ td {
   height: 100%;
   text-align: center;
 }
-.btnDelete {
-  background-color: transparent;
+
+img {
+  width: 11rem;
+}
+
+.btnBack {
   border: none;
   color: #79031d;
   background-color: #edb518;
   font-size: 1.1rem;
-  width: 7rem;
+  width: 11rem;
   padding: 0.2rem;
 }
 
-.btnDelete:hover {
-  color: #edb518;
-  background-color: #79031d;
-}
-
-.btnCheckout {
-  background-color: transparent;
-  border: none;
-  color: #79031d;
-  background-color: #edb518;
-  font-size: 1rem;
-  width: 13rem;
-  padding: 0.3rem;
-}
-
-.btnCheckout:hover {
+.btnBack:hover {
   color: #edb518;
   background-color: #79031d;
 }

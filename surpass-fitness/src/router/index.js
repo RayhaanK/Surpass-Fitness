@@ -146,9 +146,19 @@ const routes = [
     }
   },  
   {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../views/CartView.vue'),
+    beforeEnter() {
+      if (!cookies.get("LegitUser")) {
+        router.push({ name: "login" })
+      }
+    }
+  },  
+  {
     path: '/checkout',
     name: 'checkout',
-    component: () => import('../views/CartView.vue'),
+    component: () => import('../views/CheckoutView.vue'),
     beforeEnter() {
       if (!cookies.get("LegitUser")) {
         router.push({ name: "login" })
