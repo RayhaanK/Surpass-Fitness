@@ -2,7 +2,7 @@
   <div>
     <section id="contact" class="contact">
       <div class="container">
-        <h2>Contact us</h2>
+        <h2 class="mt-3 mb-3">Contact us</h2>
             <div class="card card1 mx-auto p-4">
               <h2 class="color">Leave a Comment</h2>
               <div
